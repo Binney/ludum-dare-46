@@ -13,4 +13,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var scroll = Vector2(WALKING_SPEED, 0);
-	$ParallaxBackground.scroll_offset -= scroll
+	$CountrysideBackground.scroll_offset -= scroll

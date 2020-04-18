@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://background/tree0.png" type="Texture" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://music/song_1/loop_guitar.ogg" type="AudioStream" id=2]
 [ext_resource path="res://background/countryside.jpg" type="Texture" id=3]
 [ext_resource path="res://LevelOne.gd" type="Script" id=4]
 [ext_resource path="res://background/tree4.png" type="Texture" id=5]
@@ -15,6 +15,9 @@
 [ext_resource path="res://background/trees_mid.png" type="Texture" id=13]
 [ext_resource path="res://background/trees_near.png" type="Texture" id=14]
 [ext_resource path="res://background/wall.png" type="Texture" id=15]
+[ext_resource path="res://Mousician.tscn" type="PackedScene" id=16]
+[ext_resource path="res://music/song_1/loop_tuba.ogg" type="AudioStream" id=17]
+[ext_resource path="res://music/song_1/loop_snare.ogg" type="AudioStream" id=18]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.254286, 0.445714, 0.608571, 1 )
@@ -25,9 +28,6 @@ gradient = SubResource( 1 )
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource( 4 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 215.446, 379.87 )
 
 [node name="CountrysideBackground" type="ParallaxBackground" parent="."]
 script = ExtResource( 11 )
@@ -133,12 +133,15 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 763, 278 )
 
-[node name="Guitarist" parent="." instance=ExtResource( 2 )]
-position = Vector2( 290.305, 419.945 )
-
-[node name="Drummer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 421.08, 419.435 )
+[node name="Drummer" parent="." instance=ExtResource( 16 )]
+position = Vector2( 415.936, 376.566 )
+loop_track = ExtResource( 18 )
 is_percussion = true
 
-[node name="Tubist" parent="." instance=ExtResource( 2 )]
-position = Vector2( 159.887, 420.275 )
+[node name="Guitarist" parent="." instance=ExtResource( 16 )]
+position = Vector2( 284.303, 376.219 )
+loop_track = ExtResource( 2 )
+
+[node name="Tubist" parent="." instance=ExtResource( 16 )]
+position = Vector2( 152.171, 376.549 )
+loop_track = ExtResource( 17 )

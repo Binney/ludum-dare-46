@@ -137,7 +137,8 @@ region_rect = Rect2( 0, 0, 763, 278 )
 position = Vector2( 290.305, 419.945 )
 
 [node name="Drummer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 413.296, 418.837 )
+position = Vector2( 421.08, 419.435 )
+is_percussion = true
 
 [node name="Tubist" parent="." instance=ExtResource( 2 )]
-position = Vector2( 162.881, 423.269 )
+position = Vector2( 159.887, 420.275 )

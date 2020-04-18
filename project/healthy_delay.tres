@@ -1,0 +1,9 @@
+[gd_resource type="AudioEffectDelay" format=2]
+
+[resource]
+resource_name = "Delay"
+dry = 0.0
+tap1/delay_ms = 125.0
+tap1/level_db = 0.0
+tap1/pan = 0.0
+tap2/active = false

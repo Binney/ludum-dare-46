@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/loop_snare.ogg-7da53a82252f45cfd10fba38b2b5992f.oggstr"
+
+[deps]
+
+source_file="res://music/song_1/loop_snare.ogg"
+dest_files=[ "res://.import/loop_snare.ogg-7da53a82252f45cfd10fba38b2b5992f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

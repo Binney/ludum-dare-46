@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_snare.ogg-e0f344b4879b9435fe5fb409f0a9945b.oggstr"
+
+[deps]
+
+source_file="res://music/song_1/intro_snare.ogg"
+dest_files=[ "res://.import/intro_snare.ogg-e0f344b4879b9435fe5fb409f0a9945b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

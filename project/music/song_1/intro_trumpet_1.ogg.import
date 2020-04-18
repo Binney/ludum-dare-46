@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_trumpet_1.ogg-bcfcf9e92cf0177e519f5405215d34e8.oggstr"
+
+[deps]
+
+source_file="res://music/song_1/intro_trumpet_1.ogg"
+dest_files=[ "res://.import/intro_trumpet_1.ogg-bcfcf9e92cf0177e519f5405215d34e8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

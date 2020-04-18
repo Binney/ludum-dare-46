@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprite/eye1.png" type="Texture" id=1]
 [ext_resource path="res://sprite/eye0.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://music/synth_test.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,3 +36,6 @@ animation = "eye"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6 )
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

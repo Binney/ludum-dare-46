@@ -17,5 +17,8 @@ func _ready():
 func _process(delta):
 	if moving:
 		$AnimatedSprite.play()
+		if !$AudioStreamPlayer.playing:
+			$AudioStreamPlayer.play()
 	else:
 		$AnimatedSprite.stop()
+		$AudioStreamPlayer.stop()

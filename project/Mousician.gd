@@ -5,13 +5,14 @@ export(AudioStream) var loop_track
 export var is_percussion = false
 
 const SADNESS_CHANCE_PER_SECOND = 0.1
+const SADNESS_COOL_OFF_TIME_MS = 5000
 var rng = RandomNumberGenerator.new()
 
 var pitch_offset = 0
 var time_offset = 0
 const pitch_offset_max = 3
-var touch_start
 var track_start_time
+var cool_off_start_time = 0
 
 var is_intro = true
 
@@ -39,7 +40,7 @@ func setUpBus():
 	AudioServer.add_bus_effect(busId, pitchShiftEffect)
 
 func _process(delta):
-	if (!is_intro && (!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
+	if (!is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
 		become_sad()
 		
 	if (is_percussion && time_offset != 0):
@@ -55,6 +56,9 @@ func _input_event(viewport, event, shape_idx):
 
 func is_sad():
 	return time_offset != 0 || pitch_offset != 0
+
+func is_cooling_off():
+	return OS.get_ticks_msec() - cool_off_start_time < SADNESS_COOL_OFF_TIME_MS
 
 func play_loop():
 	is_intro = false
@@ -101,18 +105,6 @@ func resync_track():
 func calculate_ratio_for_offset(semitoneShift):
 	return pow(2, (semitoneShift)/float(12))
 
-func _on_Sharpen_performAction():
-	if (pitch_offset < pitch_offset_max):
-		pitch_offset += 1
-	update_output()
-	hide_menu()
-
-func _on_Flatten_performAction():
-	if (pitch_offset > -pitch_offset_max):
-		pitch_offset -= 1
-	update_output()
-	hide_menu()
-
 func show_menu(position):
 	$ActionMenu.set_position(position)
 	$ActionMenu.visible = true
@@ -123,21 +115,34 @@ func hide_menu():
 func _on_ActionMenu_cancel():
 	hide_menu()
 
+func _on_Sharpen_performAction():
+	if (pitch_offset < pitch_offset_max):
+		pitch_offset += 1
+	post_process_action()
+
+func _on_Flatten_performAction():
+	if (pitch_offset > -pitch_offset_max):
+		pitch_offset -= 1
+	post_process_action()
+
 func _on_Push_performAction():
 	if (time_offset < 0):
 		time_offset = 0
 	elif (time_offset == 0):
 		time_offset = 1
-	update_output()
-	hide_menu()
+	post_process_action()
 
 func _on_Pull_performAction():
 	if (time_offset > 0):
 		time_offset = 0
 	elif (time_offset == 0):
 		time_offset = -1
-	update_output()
+	post_process_action()
+
+func post_process_action():
 	hide_menu()
+	update_output()
+	cool_off_start_time = OS.get_ticks_msec()
 
 func _on_AudioStreamPlayer_finished():
 	if(is_intro):

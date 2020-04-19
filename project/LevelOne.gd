@@ -25,3 +25,4 @@ func _process(delta):
 	for child in get_children():
 		if (child is Mousician && child.is_sad()):
 			sad_time += delta
+			break

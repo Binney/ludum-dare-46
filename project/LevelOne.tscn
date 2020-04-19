@@ -40,11 +40,11 @@ centered = false
 
 [node name="Horizon" type="ParallaxLayer" parent="CountrysideBackground"]
 motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 894, 0 )
+motion_mirroring = Vector2( 1028, 0 )
 
 [node name="countryside" type="Sprite" parent="CountrysideBackground/Horizon"]
 position = Vector2( 1.05408, 92.7704 )
-scale = Vector2( 1.00112, 0.900076 )
+scale = Vector2( 1.15, 1.15 )
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -66,7 +66,7 @@ centered = false
 
 [node name="TreesFar" type="ParallaxLayer" parent="CountrysideBackground"]
 motion_scale = Vector2( 0.75, 0.75 )
-motion_mirroring = Vector2( 800, 0 )
+motion_mirroring = Vector2( 1028, 0 )
 
 [node name="trees_far" type="Sprite" parent="CountrysideBackground/TreesFar"]
 position = Vector2( 413.819, 299.744 )
@@ -78,7 +78,7 @@ region_rect = Rect2( 0, 0, 895.935, 331.304 )
 [node name="TreesMiddle" type="ParallaxLayer" parent="CountrysideBackground"]
 scale = Vector2( 0.8, 0.8 )
 motion_scale = Vector2( 0.8, 0.8 )
-motion_mirroring = Vector2( 600, 0 )
+motion_mirroring = Vector2( 1028, 0 )
 
 [node name="trees_middle" type="Sprite" parent="CountrysideBackground/TreesMiddle"]
 position = Vector2( 340.906, 419.687 )
@@ -87,9 +87,8 @@ region_enabled = true
 region_rect = Rect2( -7.43152, -7.84123, 636.828, 320.747 )
 
 [node name="TreesClosest" type="ParallaxLayer" parent="CountrysideBackground"]
-visible = false
 motion_scale = Vector2( 0.95, 0.95 )
-motion_mirroring = Vector2( 1000, 0 )
+motion_mirroring = Vector2( 1028, 0 )
 
 [node name="tree0" type="Sprite" parent="CountrysideBackground/TreesClosest"]
 position = Vector2( 35.4235, 179.597 )
@@ -123,10 +122,18 @@ region_enabled = true
 region_rect = Rect2( -5.09882, -10.1739, 1025.22, 324.246 )
 
 [node name="Wall" type="ParallaxLayer" parent="CountrysideBackground"]
-motion_mirroring = Vector2( 650, 0 )
+motion_mirroring = Vector2( 1028, 0 )
 
 [node name="wall" type="Sprite" parent="CountrysideBackground/Wall"]
 position = Vector2( 0.335464, 372.172 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 15 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 763, 278 )
+
+[node name="wall2" type="Sprite" parent="CountrysideBackground/Wall"]
+position = Vector2( 550.122, 372.727 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 15 )
 centered = false

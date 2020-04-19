@@ -11,5 +11,5 @@ dest_files=[ "res://.import/intro_tuba.ogg-71bba5874292c1ac82cc3f230af38b9d.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

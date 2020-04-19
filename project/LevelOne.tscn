@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://background/tree0.png" type="Texture" id=1]
 [ext_resource path="res://music/song_1/loop_guitar.ogg" type="AudioStream" id=2]
@@ -25,6 +25,12 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource( 4 )
@@ -152,3 +158,16 @@ loop_track = ExtResource( 2 )
 [node name="Tubist" parent="." instance=ExtResource( 16 )]
 position = Vector2( 134.973, 346.591 )
 loop_track = ExtResource( 17 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 586.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 90.0
+step = 0.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

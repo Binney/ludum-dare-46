@@ -16,12 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Hello Godot"
-run/main_scene="res://LevelOne.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [audio]
 
 default_bus_layout="res://bus_layout.tres"
+
+[autoload]
+
+PlayerState="*res://PlayerState.gd"
 
 [input_devices]
 

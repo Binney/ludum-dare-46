@@ -13,6 +13,7 @@ pitch_scale = 1.06
 [sub_resource type="AudioEffectDelay" id=3]
 resource_name = "Delay"
 dry = 0.0
+tap1/delay_ms = 500.0
 tap1/level_db = 0.0
 tap1/pan = 0.0
 tap2/active = false

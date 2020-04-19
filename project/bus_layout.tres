@@ -1,10 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=2]
+[gd_resource type="AudioBusLayout" load_steps=15 format=2]
 
 [ext_resource path="res://healthy_delay.tres" type="AudioEffectDelay" id=1]
 
 [sub_resource type="AudioEffectPitchShift" id=1]
 resource_name = "PitchShift"
 pitch_scale = 0.94
+
+[sub_resource type="AudioEffectPitchShift" id=13]
+resource_name = "PitchShift"
 
 [sub_resource type="AudioEffectPitchShift" id=2]
 resource_name = "PitchShift"
@@ -18,8 +21,43 @@ tap1/level_db = 0.0
 tap1/pan = 0.0
 tap2/active = false
 
+[sub_resource type="AudioEffectPitchShift" id=4]
+resource_name = "PitchShift"
+pitch_scale = 0.86
+
+[sub_resource type="AudioEffectDelay" id=5]
+resource_name = "Delay"
+tap2/active = false
+
+[sub_resource type="AudioEffectPitchShift" id=6]
+resource_name = "PitchShift"
+pitch_scale = 1.15
+
+[sub_resource type="AudioEffectDelay" id=7]
+resource_name = "Delay"
+tap2/active = false
+
+[sub_resource type="AudioEffectPitchShift" id=8]
+resource_name = "PitchShift"
+pitch_scale = 0.7
+
+[sub_resource type="AudioEffectDelay" id=9]
+resource_name = "Delay"
+tap2/active = false
+
+[sub_resource type="AudioEffectPhaser" id=10]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectPitchShift" id=11]
+resource_name = "PitchShift"
+pitch_scale = 1.2
+
+[sub_resource type="AudioEffectDelay" id=12]
+resource_name = "Delay"
+tap2/active = false
+
 [resource]
-bus/1/name = "Flat"
+bus/1/name = "Flat 1"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -29,7 +67,7 @@ bus/1/effect/0/effect = SubResource( 1 )
 bus/1/effect/0/enabled = true
 bus/1/effect/1/effect = ExtResource( 1 )
 bus/1/effect/1/enabled = true
-bus/2/name = "Sharp"
+bus/2/name = "Sharp 1"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
@@ -61,3 +99,53 @@ bus/5/volume_db = 0.0
 bus/5/send = "Master"
 bus/5/effect/0/effect = ExtResource( 1 )
 bus/5/effect/0/enabled = true
+bus/6/name = "Flat 2"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = "Master"
+bus/6/effect/0/effect = SubResource( 4 )
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource( 5 )
+bus/6/effect/1/enabled = true
+bus/7/name = "Sharp 2"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = "Master"
+bus/7/effect/0/effect = SubResource( 6 )
+bus/7/effect/0/enabled = true
+bus/7/effect/1/effect = SubResource( 7 )
+bus/7/effect/1/enabled = true
+bus/8/name = "Flat 3"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = "Master"
+bus/8/effect/0/effect = SubResource( 8 )
+bus/8/effect/0/enabled = true
+bus/8/effect/1/effect = SubResource( 9 )
+bus/8/effect/1/enabled = true
+bus/9/name = "Sharp 3"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = "Master"
+bus/9/effect/0/effect = SubResource( 10 )
+bus/9/effect/0/enabled = false
+bus/9/effect/1/effect = SubResource( 11 )
+bus/9/effect/1/enabled = true
+bus/9/effect/2/effect = SubResource( 12 )
+bus/9/effect/2/enabled = true
+bus/10/name = "Tuba"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = 0.0
+bus/10/send = "Master"
+bus/10/effect/0/effect = SubResource( 13 )
+bus/10/effect/0/enabled = true

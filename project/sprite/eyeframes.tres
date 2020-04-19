@@ -40,13 +40,13 @@ animations = [ {
 "name": "sad_keys",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "sad_guitar",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "happy_guitar",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "sad_guitar",
 "speed": 5.0
 } ]

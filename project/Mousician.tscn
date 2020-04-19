@@ -13,12 +13,14 @@ extents = Vector2( 954.333, 105.412 )
 
 [node name="Mousician" type="Area2D"]
 script = ExtResource( 2 )
+instrument = null
+is_percussion = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 1 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -39,17 +41,9 @@ action = "sharpen"
 position = Vector2( 0, 50 )
 action = "flatten"
 
-[node name="Push" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( 50, 0 )
-
-[node name="Pull" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( -50, 0 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionMenu"]
 scale = Vector2( -10.9485, -41.0251 )
 shape = SubResource( 2 )
 [connection signal="cancel" from="ActionMenu" to="." method="_on_ActionMenu_cancel"]
 [connection signal="performAction" from="ActionMenu/Sharpen" to="." method="_on_Sharpen_performAction"]
 [connection signal="performAction" from="ActionMenu/Flatten" to="." method="_on_Flatten_performAction"]
-[connection signal="performAction" from="ActionMenu/Push" to="." method="_on_Push_performAction"]
-[connection signal="performAction" from="ActionMenu/Pull" to="." method="_on_Pull_performAction"]

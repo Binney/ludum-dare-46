@@ -148,18 +148,15 @@ region_rect = Rect2( 0, 0, 763, 278 )
 
 [node name="Drummer" parent="." instance=ExtResource( 16 )]
 position = Vector2( 402.067, 343.834 )
-instrument = "keys"
 loop_track = ExtResource( 18 )
 is_percussion = true
 
 [node name="Guitarist" parent="." instance=ExtResource( 16 )]
 position = Vector2( 268.769, 344.597 )
-instrument = "guitar"
 loop_track = ExtResource( 2 )
 
 [node name="Tubist" parent="." instance=ExtResource( 16 )]
 position = Vector2( 134.973, 346.591 )
-instrument = "tuba"
 loop_track = ExtResource( 17 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

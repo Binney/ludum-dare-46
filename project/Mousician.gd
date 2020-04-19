@@ -10,13 +10,26 @@ var rng = RandomNumberGenerator.new()
 
 var pitch_offset = 0
 var time_offset = 0
-const pitch_offset_max = 3
+const pitch_offset_max = 24
 var touch_start
 var track_start_time
+
+var busId
+var pitchShiftEffect
 
 func _ready():
 	rng.randomize()
 	$AnimatedSprite.play("happy_" + instrument)
+	setUpBus()
+	
+func setUpBus():
+	busId = AudioServer.bus_count
+	AudioServer.add_bus(busId)
+	var busName = "mouse-" + str(busId)
+	AudioServer.set_bus_name(busId, busName)
+	$AudioStreamPlayer.set_bus(busName)
+	pitchShiftEffect = AudioEffectPitchShift.new()
+	AudioServer.add_bus_effect(busId, pitchShiftEffect)
 
 func _process(delta):
 	if ((!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
@@ -54,50 +67,29 @@ func become_sad():
 	update_output()
 
 func update_output():
-	var is_happy = pitch_offset == 0 && time_offset == 0;
-	if (is_happy):
+	var is_happy = pitch_offset == 0 && time_offset == 0
+	if(is_happy):
 		$AnimatedSprite.play("happy_" + instrument)
-		$AudioStreamPlayer.bus = "Healthy"
-	elif(pitch_offset != 0):
+	else:
 		$AnimatedSprite.play("sad_" + instrument)
-		var pitch_shift_effect = "Sharp" if pitch_offset > 0 else "Flat"
-		$AudioStreamPlayer.bus = pitch_shift_effect + " " + str(abs(pitch_offset))
-	elif(time_offset != 0):
-		match time_offset:
-			[0, -1]:
-				$AnimatedSprite.play("sad_" + instrument)
-				if (is_percussion):
-					$AudioStreamPlayer.pitch_scale = 1
-					resync_track()
-					$AudioStreamPlayer.bus = "Healthy"
-				else:
-					$AudioStreamPlayer.pitch_scale = pow(2, -1/float(12))
-					$AudioStreamPlayer.bus = "Sharp"
-			[0, 1]:
-				$AnimatedSprite.play("sad_" + instrument)
-				if (is_percussion):
-					$AudioStreamPlayer.pitch_scale = 1
-					resync_track()
-					$AudioStreamPlayer.bus = "Healthy"
-				else:
-					$AudioStreamPlayer.pitch_scale = pow(2, 1/float(12))
-					$AudioStreamPlayer.bus = "Flat"
-
+		
+	# Time shift for drums needs to happen gradually, so is implemented in process(). As such we do not alter the time shift for percussion here.
+	var effectiveTimeOffset = 0 if is_percussion else time_offset
+	$AudioStreamPlayer.pitch_scale = calculate_ratio_for_offset(effectiveTimeOffset)
+	pitchShiftEffect.pitch_scale = calculate_ratio_for_offset(pitch_offset - effectiveTimeOffset)
+	
+	# Percussion is not excluded when re-correcting on returning to no time offset
+	if time_offset == 0:
+		resync_track()
+		
 func resync_track():
 	var elapsedMicroseconds = OS.get_ticks_usec() - track_start_time
 	var elapsedSeconds = elapsedMicroseconds / float(1000000)
 	var loopOffset = fmod(elapsedSeconds, $AudioStreamPlayer.stream.get_length())
 	$AudioStreamPlayer.seek(loopOffset)
-=======
-	var is_happy = pitch_offset == 0 && time_offset == 0;
-	if (is_happy):
-		$AnimatedSprite.play("happy_" + instrument)
-		$AudioStreamPlayer.bus = "Healthy"
-	else: 
-		$AnimatedSprite.play("sad_" + instrument)
-		var pitch_shift_effect = "Sharp" if pitch_offset > 0 else "Flat"
-		$AudioStreamPlayer.bus = pitch_shift_effect + " " + str(abs(pitch_offset))
->>>>>>> Stashed changes
+
+func calculate_ratio_for_offset(semitoneShift):
+	return pow(2, (semitoneShift)/float(12))
 
 func _on_Sharpen_performAction():
 	if (pitch_offset < pitch_offset_max):

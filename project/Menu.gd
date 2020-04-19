@@ -34,3 +34,11 @@ func _on_Tutorial_2_Btn_pressed():
 
 func _on_Tutorial_3_Btn_pressed():
 	 get_tree().change_scene("res://TutorialThree.tscn")
+
+
+func _on_Bonus_level_Btn_pressed():
+	 get_tree().change_scene("res://BonusLevel.tscn")
+
+
+func _on_Level_1_Btn_dubstep_pressed():
+	 get_tree().change_scene("res://LevelOneDubstep.tscn")

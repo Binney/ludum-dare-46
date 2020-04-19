@@ -50,6 +50,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Level_1_Btn_dubstep" type="Button" parent="."]
+margin_left = 677.4
+margin_top = 185.7
+margin_right = 1001.4
+margin_bottom = 266.7
+custom_fonts/font = ExtResource( 2 )
+text = "Level 1 (secret dubstep remix)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Level_2_Btn" type="Button" parent="."]
 margin_left = 343.0
 margin_top = 301.6
@@ -60,8 +71,21 @@ text = "Level 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Bonus_level_Btn" type="Button" parent="."]
+margin_left = 339.2
+margin_top = 493.5
+margin_right = 663.2
+margin_bottom = 574.5
+custom_fonts/font = ExtResource( 2 )
+text = "Secret Bonus Level (shh)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Tutorial_1_Btn" to="." method="_on_Tutorial_1_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_2_Btn" to="." method="_on_Tutorial_2_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_3_Btn" to="." method="_on_Tutorial_3_Btn_pressed"]
 [connection signal="pressed" from="Level_1_Btn" to="." method="_on_Level_1_Btn_pressed"]
+[connection signal="pressed" from="Level_1_Btn_dubstep" to="." method="_on_Level_1_Btn_dubstep_pressed"]
 [connection signal="pressed" from="Level_2_Btn" to="." method="_on_Level_2_Btn_pressed"]
+[connection signal="pressed" from="Bonus_level_Btn" to="." method="_on_Bonus_level_Btn_pressed"]

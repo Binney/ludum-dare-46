@@ -24,7 +24,10 @@ func _ready():
 	$ActionMenu/Sharpen.visible = !is_percussion
 	$ActionMenu/Flatten.visible = !is_percussion
 	setUpBus()
-	play_intro()
+	if (intro_track == null):
+		play_loop()
+	else:
+		play_intro()
 	
 func setUpBus():
 	busId = AudioServer.bus_count
@@ -54,6 +57,7 @@ func is_sad():
 	return time_offset != 0 || pitch_offset != 0
 
 func play_loop():
+	is_intro = false
 	$AudioStreamPlayer.stream = loop_track
 	track_start_time = OS.get_ticks_usec()
 	$AudioStreamPlayer.play()
@@ -137,5 +141,4 @@ func _on_Pull_performAction():
 
 func _on_AudioStreamPlayer_finished():
 	if(is_intro):
-		is_intro = false
 		play_loop()

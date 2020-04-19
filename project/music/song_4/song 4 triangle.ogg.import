@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song 4 triangle.ogg-5027f97cdb2b3a56fae69c5d1f3d4a31.oggstr"
+
+[deps]
+
+source_file="res://music/song_4/song 4 triangle.ogg"
+dest_files=[ "res://.import/song 4 triangle.ogg-5027f97cdb2b3a56fae69c5d1f3d4a31.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

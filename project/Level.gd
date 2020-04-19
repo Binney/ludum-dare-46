@@ -11,7 +11,8 @@ func _process(delta):
 	$ProgressBar.value += delta
 
 	if ($ProgressBar.value == $ProgressBar.max_value):
-		get_tree().get_root().get_child(0).last_level_score = 100 * (($ProgressBar.max_value - sad_time) / $ProgressBar.max_value)
+		var player_state = get_tree().get_root().get_child(0)
+		player_state.set_level_score(100 * ($ProgressBar.max_value - sad_time) / $ProgressBar.max_value)
 		get_tree().change_scene('res://GameOver.tscn')
 	
 	var scroll = Vector2(WALKING_SPEED, 0);

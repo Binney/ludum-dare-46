@@ -1,36 +1,27 @@
 extends Node2D
 
+var player_state
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	player_state = get_tree().get_root().get_child(0)
 
 func _on_Level_1_Btn_pressed():
-	 get_tree().change_scene("res://LevelOne.tscn")
+	player_state.set_level(1)
+	get_tree().change_scene("res://LevelOne.tscn")
 
 
 func _on_Level_2_Btn_pressed():
-	 get_tree().change_scene("res://LevelTwo.tscn")
+	player_state.set_level(2)
+	get_tree().change_scene("res://LevelTwo.tscn")
 
 
 func _on_Tutorial_1_Btn_pressed():
-	 get_tree().change_scene("res://TutorialOne.tscn")
+	get_tree().change_scene("res://TutorialOne.tscn")
 
 
 func _on_Tutorial_2_Btn_pressed():
-	 get_tree().change_scene("res://TutorialTwo.tscn")
+	get_tree().change_scene("res://TutorialTwo.tscn")
 
 
 func _on_Tutorial_3_Btn_pressed():
-	 get_tree().change_scene("res://TutorialThree.tscn")
+	get_tree().change_scene("res://TutorialThree.tscn")

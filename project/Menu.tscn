@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/Mawns_Handwriting_Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Cheesometer.tscn" type="PackedScene" id=2]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,10 +41,10 @@ __meta__ = {
 }
 
 [node name="Level_1_Btn" type="Button" parent="."]
-margin_left = 342.05
-margin_top = 186.65
-margin_right = 666.05
-margin_bottom = 267.65
+margin_left = 231.05
+margin_top = 191.65
+margin_right = 555.05
+margin_bottom = 272.65
 custom_fonts/font = ExtResource( 2 )
 text = "Level 1"
 __meta__ = {
@@ -51,15 +52,24 @@ __meta__ = {
 }
 
 [node name="Level_2_Btn" type="Button" parent="."]
-margin_left = 343.0
-margin_top = 301.6
-margin_right = 667.0
-margin_bottom = 382.6
+margin_left = 232.0
+margin_top = 306.6
+margin_right = 556.0
+margin_bottom = 387.6
 custom_fonts/font = ExtResource( 2 )
 text = "Level 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cheesometer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 695.939, 233.412 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="Cheesometer2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 697.371, 346.537 )
+scale = Vector2( 0.1, 0.1 )
+level_index = 1
 [connection signal="pressed" from="Tutorial_1_Btn" to="." method="_on_Tutorial_1_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_2_Btn" to="." method="_on_Tutorial_2_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_3_Btn" to="." method="_on_Tutorial_3_Btn_pressed"]

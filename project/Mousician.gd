@@ -1,6 +1,6 @@
 extends Area2D
 
-
+export(String) var instrument
 export(AudioStream) var intro_track
 export(AudioStream) var loop_track
 export var is_percussion = false
@@ -14,6 +14,7 @@ var touch_start
 
 func _ready():
 	rng.randomize()
+	$AnimatedSprite.play("happy_" + instrument)
 
 func _process(delta):
 	if ((!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
@@ -49,22 +50,22 @@ func become_sad():
 func update_output():
 	match [pitch_offset, time_offset]:
 		[0, 0]:
-			$AnimatedSprite.play("default")
+			$AnimatedSprite.play("happy_" + instrument)
 			$AudioStreamPlayer.bus = "Healthy"
 		[-1, 0]:
-			$AnimatedSprite.play("sad")
+			$AnimatedSprite.play("sad_" + instrument)
 			$AudioStreamPlayer.bus = "Flat"
 		[1, 0]:
-			$AnimatedSprite.play("sad")
+			$AnimatedSprite.play("sad_" + instrument)
 			$AudioStreamPlayer.bus = "Sharp"
 		[0, 0]:
-			$AnimatedSprite.play("default")
+			$AnimatedSprite.play("happy_" + instrument)
 			$AudioStreamPlayer.bus = "Healthy"
 		[0, -1]:
-			$AnimatedSprite.play("sad")
+			$AnimatedSprite.play("sad_" + instrument)
 			$AudioStreamPlayer.bus = "Slow"
 		[0, 1]:
-			$AnimatedSprite.play("sad")
+			$AnimatedSprite.play("sad_" + instrument)
 			$AudioStreamPlayer.bus = "Fast"
 
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song 3 -trump3.ogg-8ae370c25f92f91f06c385e61e5a0463.oggstr"
+
+[deps]
+
+source_file="res://music/song_3/song 3 -trump3.ogg"
+dest_files=[ "res://.import/song 3 -trump3.ogg-8ae370c25f92f91f06c385e61e5a0463.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

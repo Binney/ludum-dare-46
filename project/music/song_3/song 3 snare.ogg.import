@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song 3 snare.ogg-a24e89930420dfd05194fc8c271a8646.oggstr"
+
+[deps]
+
+source_file="res://music/song_3/song 3 snare.ogg"
+dest_files=[ "res://.import/song 3 snare.ogg-a24e89930420dfd05194fc8c271a8646.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

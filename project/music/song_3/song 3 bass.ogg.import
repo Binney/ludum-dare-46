@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song 3 bass.ogg-48470457eb6eeebd0b77d10c3ce240cb.oggstr"
+
+[deps]
+
+source_file="res://music/song_3/song 3 bass.ogg"
+dest_files=[ "res://.import/song 3 bass.ogg-48470457eb6eeebd0b77d10c3ce240cb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

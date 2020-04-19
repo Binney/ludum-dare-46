@@ -1,18 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=1]
-[ext_resource path="res://music/song_3/song 3 bass.ogg" type="AudioStream" id=2]
+[ext_resource path="res://music/song_3/song 3 backing.ogg" type="AudioStream" id=2]
 [ext_resource path="res://music/song_3/song 3 -guitar.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Level.gd" type="Script" id=4]
-[ext_resource path="res://music/song_3/song 3 cymbal.ogg" type="AudioStream" id=5]
 [ext_resource path="res://music/song_3/song 3 -tuba.ogg" type="AudioStream" id=6]
 [ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://music/song_3/song 3 -trump3.ogg" type="AudioStream" id=9]
 [ext_resource path="res://music/song_3/song 3 -floot.ogg" type="AudioStream" id=10]
-[ext_resource path="res://music/song_3/song 3 -trump1.ogg" type="AudioStream" id=11]
 [ext_resource path="res://music/song_3/song 3 snare.ogg" type="AudioStream" id=12]
-[ext_resource path="res://music/song_3/song 3 -trump2.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Mousician.tscn" type="PackedScene" id=16]
 [ext_resource path="res://sprite/GuitarMouse.tres" type="SpriteFrames" id=20]
 [ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=21]
@@ -28,108 +24,70 @@ script = ExtResource( 4 )
 loop_track = ExtResource( 6 )
 
 [node name="AnimatedSprite" parent="Tuba Mous" index="0"]
-position = Vector2( 944.002, 354.001 )
+position = Vector2( 594.001, 347.001 )
 frames = ExtResource( 21 )
 animation = "happy"
-frame = 2
+
+[node name="AudioStreamPlayer" parent="Tuba Mous" index="1"]
+bus = "Master"
 
 [node name="CollisionShape2D" parent="Tuba Mous" index="2"]
-position = Vector2( 943.002, 363.001 )
+position = Vector2( 596.001, 360.001 )
 
 [node name="Floot Maus" parent="." instance=ExtResource( 16 )]
-position = Vector2( 729.001, 350.001 )
-intro_track = ExtResource( 10 )
+position = Vector2( 334, 346.001 )
+loop_track = ExtResource( 10 )
 
 [node name="AnimatedSprite" parent="Floot Maus" index="0"]
 position = Vector2( 77.0001, 1 )
 frames = ExtResource( 21 )
 animation = "happy"
-frame = 1
+frame = 3
+
+[node name="AudioStreamPlayer" parent="Floot Maus" index="1"]
+bus = "Master"
 
 [node name="CollisionShape2D" parent="Floot Maus" index="2"]
 position = Vector2( 80.0001, 15 )
 
-[node name="Trumpet1" parent="." instance=ExtResource( 16 )]
-position = Vector2( 675.001, 351.001 )
-loop_track = ExtResource( 11 )
-is_always_happy = true
-
-[node name="AnimatedSprite" parent="Trumpet1" index="0"]
-frames = ExtResource( 21 )
-animation = "happy"
-
-[node name="Trumpet2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 542.001, 348.001 )
-loop_track = ExtResource( 13 )
-is_always_happy = true
-
-[node name="AnimatedSprite" parent="Trumpet2" index="0"]
-frames = ExtResource( 21 )
-animation = "happy"
-frame = 2
-
-[node name="Trumpet3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 399.001, 348.001 )
-loop_track = ExtResource( 9 )
-is_always_happy = true
-
-[node name="AnimatedSprite" parent="Trumpet3" index="0"]
-frames = ExtResource( 21 )
-animation = "happy"
-frame = 2
-
 [node name="Snare" parent="." instance=ExtResource( 16 )]
-position = Vector2( 943.002, 131 )
+position = Vector2( 793.002, 342 )
 loop_track = ExtResource( 12 )
 is_percussion = true
 
 [node name="AnimatedSprite" parent="Snare" index="0"]
-frames = ExtResource( 8 )
-animation = "happy"
-frame = 3
-
-[node name="Cymbal" parent="." instance=ExtResource( 16 )]
-position = Vector2( 810.002, 127 )
-loop_track = ExtResource( 5 )
-is_percussion = true
-
-[node name="AnimatedSprite" parent="Cymbal" index="0"]
+position = Vector2( -2, 0.999542 )
 frames = ExtResource( 8 )
 animation = "happy"
 frame = 1
 
-[node name="Bass" parent="." instance=ExtResource( 16 )]
-position = Vector2( 668.001, 122 )
+[node name="AudioStreamPlayer" parent="Snare" index="1"]
+bus = "Master"
+
+[node name="CollisionShape2D" parent="Snare" index="2"]
+position = Vector2( 0, 3.99951 )
+
+[node name="Backing Music Mouse" parent="." instance=ExtResource( 16 )]
+position = Vector2( -176, 335 )
 loop_track = ExtResource( 2 )
 is_percussion = true
 is_always_happy = true
 
-[node name="AnimatedSprite" parent="Bass" index="0"]
-frames = ExtResource( 8 )
-animation = "happy"
-
 [node name="Guitar" parent="." instance=ExtResource( 16 )]
-position = Vector2( 260.001, 350.001 )
+position = Vector2( 229.001, 348.001 )
 loop_track = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="Guitar" index="0"]
 frames = ExtResource( 20 )
 animation = "happy"
 
+[node name="AudioStreamPlayer" parent="Guitar" index="1"]
+bus = "Master"
+
 [editable path="Tuba Mous"]
 
 [editable path="Floot Maus"]
 
-[editable path="Trumpet1"]
-
-[editable path="Trumpet2"]
-
-[editable path="Trumpet3"]
-
 [editable path="Snare"]
-
-[editable path="Cymbal"]
-
-[editable path="Bass"]
 
 [editable path="Guitar"]

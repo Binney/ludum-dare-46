@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GameOver.gd" type="Script" id=1]
+[ext_resource path="res://assets/Mawns_Handwriting_Font.tres" type="DynamicFont" id=2]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,6 +11,7 @@ margin_left = 1.0
 margin_top = 147.207
 margin_right = 1024.0
 margin_bottom = 255.207
+custom_fonts/font = ExtResource( 2 )
 text = "Level complete. You scored XX percent."
 align = 1
 __meta__ = {
@@ -21,6 +23,7 @@ margin_left = 381.2
 margin_top = 283.587
 margin_right = 641.2
 margin_bottom = 351.587
+custom_fonts/font = ExtResource( 2 )
 text = "Back to menu"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/Mawns_Handwriting_Font.tres" type="DynamicFont" id=2]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,6 +11,7 @@ margin_left = 8.59945
 margin_top = 19.4498
 margin_right = 332.599
 margin_bottom = 100.45
+custom_fonts/font = ExtResource( 2 )
 text = "Tutorial 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,6 +22,7 @@ margin_left = 348.7
 margin_top = 20.3998
 margin_right = 672.7
 margin_bottom = 101.4
+custom_fonts/font = ExtResource( 2 )
 text = "Tutorial 2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -30,6 +33,7 @@ margin_left = 681.2
 margin_top = 20.3998
 margin_right = 1005.2
 margin_bottom = 101.4
+custom_fonts/font = ExtResource( 2 )
 text = "Tutorial 3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,6 +44,7 @@ margin_left = 342.05
 margin_top = 186.65
 margin_right = 666.05
 margin_bottom = 267.65
+custom_fonts/font = ExtResource( 2 )
 text = "Level 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,6 +55,7 @@ margin_left = 343.0
 margin_top = 301.6
 margin_right = 667.0
 margin_bottom = 382.6
+custom_fonts/font = ExtResource( 2 )
 text = "Level 2"
 __meta__ = {
 "_edit_use_anchors_": false

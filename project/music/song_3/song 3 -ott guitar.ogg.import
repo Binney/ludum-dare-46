@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/song 3 -ott guitar.ogg-f9c63dd8e5409ba8cf8d5ae0a21466ae.oggstr"
+
+[deps]
+
+source_file="res://music/song_3/song 3 -ott guitar.ogg"
+dest_files=[ "res://.import/song 3 -ott guitar.ogg-f9c63dd8e5409ba8cf8d5ae0a21466ae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

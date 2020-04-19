@@ -1,6 +1,5 @@
 extends Area2D
 
-export(String) var instrument
 export(AudioStream) var intro_track
 export(AudioStream) var loop_track
 export var is_percussion = false
@@ -10,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 
 var pitch_offset = 0
 var time_offset = 0
-const pitch_offset_max = 24
+const pitch_offset_max = 3
 var touch_start
 var track_start_time
 
@@ -19,7 +18,7 @@ var pitchShiftEffect
 
 func _ready():
 	rng.randomize()
-	$AnimatedSprite.play("happy_" + instrument)
+	$AnimatedSprite.play("happy")
 	setUpBus()
 	
 func setUpBus():
@@ -68,10 +67,8 @@ func become_sad():
 
 func update_output():
 	var is_happy = pitch_offset == 0 && time_offset == 0
-	if(is_happy):
-		$AnimatedSprite.play("happy_" + instrument)
-	else:
-		$AnimatedSprite.play("sad_" + instrument)
+	var sprite_set_name = "happy" if is_happy else "sad"
+	$AnimatedSprite.play(sprite_set_name)
 		
 	# Time shift for drums needs to happen gradually, so is implemented in process(). As such we do not alter the time shift for percussion here.
 	var effectiveTimeOffset = 0 if is_percussion else time_offset

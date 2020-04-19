@@ -3,6 +3,7 @@ extends Area2D
 export(AudioStream) var intro_track
 export(AudioStream) var loop_track
 export var is_percussion = false
+export var is_always_happy = false
 
 const SADNESS_CHANCE_PER_SECOND = 0.1
 const SADNESS_COOL_OFF_TIME_MS = 5000
@@ -22,8 +23,10 @@ var pitchShiftEffect
 func _ready():
 	rng.randomize()
 	$AnimatedSprite.play("happy")
-	$ActionMenu/Sharpen.visible = !is_percussion
-	$ActionMenu/Flatten.visible = !is_percussion
+	$ActionMenu/Sharpen.visible = !is_percussion && !is_always_happy
+	$ActionMenu/Flatten.visible = !is_percussion && !is_always_happy
+	$ActionMenu/Push.visible = !is_always_happy
+	$ActionMenu/Pull.visible = !is_always_happy
 	setUpBus()
 	if (intro_track == null):
 		play_loop()
@@ -40,7 +43,7 @@ func setUpBus():
 	AudioServer.add_bus_effect(busId, pitchShiftEffect)
 
 func _process(delta):
-	if (!is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
+	if (!is_always_happy && !is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
 		become_sad()
 		
 	if (is_percussion && time_offset != 0):

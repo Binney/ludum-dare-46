@@ -5,10 +5,10 @@
 [ext_resource path="res://music/song_1/intro_snare.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Level.gd" type="Script" id=4]
 [ext_resource path="res://.import/intro_tuba.ogg-71bba5874292c1ac82cc3f230af38b9d.oggstr" type="AudioStream" id=5]
-[ext_resource path="res://music/song_1/intro_trumpet_1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://music/song_1/song 1 backing dub.ogg" type="AudioStream" id=6]
 [ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://music/song_1/song 1 backing.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sprite/KeyboardMouse.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://music/song_1/song 1 intro trumpets.ogg" type="AudioStream" id=10]
 [ext_resource path="res://music/song_1/loop_floot.ogg" type="AudioStream" id=11]
 [ext_resource path="res://sprite/FluteMouse.tres" type="SpriteFrames" id=12]
@@ -18,7 +18,7 @@
 [ext_resource path="res://sprite/GuitarMouse.tres" type="SpriteFrames" id=20]
 [ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=21]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOneDubstep" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="CountrysideBackground" parent="." instance=ExtResource( 1 )]
@@ -31,7 +31,7 @@ loop_track = ExtResource( 17 )
 [node name="AnimatedSprite" parent="Tubist" index="0"]
 frames = ExtResource( 21 )
 animation = "happy"
-frame = 3
+frame = 1
 
 [node name="AudioStreamPlayer" parent="Tubist" index="1"]
 bus = "Master"
@@ -61,7 +61,7 @@ loop_track = ExtResource( 2 )
 [node name="AnimatedSprite" parent="Guitarist" index="0"]
 frames = ExtResource( 20 )
 animation = "happy"
-frame = 3
+frame = 1
 
 [node name="AudioStreamPlayer" parent="Guitarist" index="1"]
 volume_db = -2.0
@@ -76,24 +76,25 @@ is_percussion = true
 [node name="AnimatedSprite" parent="Drummer" index="0"]
 frames = ExtResource( 8 )
 animation = "happy"
-frame = 3
+frame = 1
 
 [node name="AudioStreamPlayer" parent="Drummer" index="1"]
 bus = "Master"
 
 [node name="ProgressBar" parent="." instance=ExtResource( 7 )]
 
-[node name="Rest of the band (competent)" parent="." instance=ExtResource( 16 )]
-position = Vector2( -123.643, 342.048 )
-intro_track = ExtResource( 6 )
-loop_track = ExtResource( 9 )
+[node name="Keyboard Maus Bellamy" parent="." instance=ExtResource( 16 )]
+position = Vector2( 166.06, 350.171 )
+intro_track = ExtResource( 3 )
+loop_track = ExtResource( 6 )
 is_always_happy = true
 
-[node name="AnimatedSprite" parent="Rest of the band (competent)" index="0"]
-frame = 0
+[node name="AnimatedSprite" parent="Keyboard Maus Bellamy" index="0"]
+frames = ExtResource( 9 )
+animation = "happy"
+frame = 1
 
-[node name="AudioStreamPlayer" parent="Rest of the band (competent)" index="1"]
-volume_db = -6.073
+[node name="AudioStreamPlayer" parent="Keyboard Maus Bellamy" index="1"]
 bus = "Master"
 
 [editable path="Tubist"]
@@ -104,4 +105,4 @@ bus = "Master"
 
 [editable path="Drummer"]
 
-[editable path="Rest of the band (competent)"]
+[editable path="Keyboard Maus Bellamy"]

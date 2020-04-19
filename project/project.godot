@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Untitled Mouse Game"
+config/name="Hello Godot"
 run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
@@ -26,10 +26,6 @@ default_bus_layout="res://bus_layout.tres"
 [autoload]
 
 PlayerState="*res://PlayerState.gd"
-
-[display]
-
-window/size/resizable=false
 
 [input_devices]
 

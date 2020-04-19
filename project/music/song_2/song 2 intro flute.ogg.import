@@ -11,5 +11,5 @@ dest_files=[ "res://.import/song 2 intro flute.ogg-9e3ffce525850ce4bddc9c90dc6ac
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -19,6 +19,8 @@ var pitchShiftEffect
 func _ready():
 	rng.randomize()
 	$AnimatedSprite.play("happy")
+	$ActionMenu/Sharpen.visible = !is_percussion
+	$ActionMenu/Flatten.visible = !is_percussion
 	setUpBus()
 	
 func setUpBus():

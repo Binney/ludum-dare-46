@@ -11,5 +11,5 @@ dest_files=[ "res://.import/intro_snare.ogg-e0f344b4879b9435fe5fb409f0a9945b.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

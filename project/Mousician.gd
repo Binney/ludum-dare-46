@@ -13,6 +13,8 @@ const pitch_offset_max = 3
 var touch_start
 var track_start_time
 
+var is_intro = true
+
 var busId
 var pitchShiftEffect
 
@@ -22,6 +24,7 @@ func _ready():
 	$ActionMenu/Sharpen.visible = !is_percussion
 	$ActionMenu/Flatten.visible = !is_percussion
 	setUpBus()
+	play_intro()
 	
 func setUpBus():
 	busId = AudioServer.bus_count
@@ -33,7 +36,7 @@ func setUpBus():
 	AudioServer.add_bus_effect(busId, pitchShiftEffect)
 
 func _process(delta):
-	if ((!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
+	if (!is_intro && (!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
 		become_sad()
 		
 	if (is_percussion && time_offset != 0):
@@ -53,6 +56,10 @@ func is_sad():
 func play_loop():
 	$AudioStreamPlayer.stream = loop_track
 	track_start_time = OS.get_ticks_usec()
+	$AudioStreamPlayer.play()
+	
+func play_intro():
+	$AudioStreamPlayer.stream = intro_track
 	$AudioStreamPlayer.play()
 
 func become_sad():
@@ -127,3 +134,8 @@ func _on_Pull_performAction():
 		time_offset = -1
 	update_output()
 	hide_menu()
+
+func _on_AudioStreamPlayer_finished():
+	if(is_intro):
+		is_intro = false
+		play_loop()

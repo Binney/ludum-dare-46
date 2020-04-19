@@ -4,12 +4,6 @@ const WALKING_SPEED = 1
 
 const Mousician = preload('Mousician.gd')
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	for child in get_children():
-		if (child is Mousician):
-			child.play_loop()
-
 var sad_time = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

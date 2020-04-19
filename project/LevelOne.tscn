@@ -141,14 +141,14 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 763, 278 )
 
 [node name="Drummer" parent="." instance=ExtResource( 16 )]
-position = Vector2( 415.936, 376.566 )
+position = Vector2( 421.936, 352.566 )
 loop_track = ExtResource( 18 )
 is_percussion = true
 
 [node name="Guitarist" parent="." instance=ExtResource( 16 )]
-position = Vector2( 284.303, 376.219 )
+position = Vector2( 290.303, 352.219 )
 loop_track = ExtResource( 2 )
 
 [node name="Tubist" parent="." instance=ExtResource( 16 )]
-position = Vector2( 152.171, 375.994 )
+position = Vector2( 158.171, 351.994 )
 loop_track = ExtResource( 17 )

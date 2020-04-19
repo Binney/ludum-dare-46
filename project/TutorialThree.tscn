@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://music/song_4/song 4 trumpet.ogg" type="AudioStream" id=1]
+[ext_resource path="res://music/song_4/song 4 triangle.ogg" type="AudioStream" id=2]
+[ext_resource path="res://sprite/triangle1.png" type="Texture" id=3]
+[ext_resource path="res://music/song_4/song 4 tuba.ogg" type="AudioStream" id=4]
+[ext_resource path="res://music/song_4/song 4 snare.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sprite/triangle2.png" type="Texture" id=6]
+[ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://sprite/GuitarMouse.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://Mousician.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Level.tscn" type="PackedScene" id=11]
+[ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "happy",
+"speed": 2.5
+} ]
+
+[node name="TutorialThree" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource( 11 )]
+
+[node name="CountrysideBackground" parent="Level" instance=ExtResource( 12 )]
+
+[node name="Snarer" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 533.817, 345.93 )
+loop_track = ExtResource( 5 )
+is_percussion = true
+
+[node name="AnimatedSprite" parent="Level/Snarer" index="0"]
+frames = ExtResource( 7 )
+animation = "happy"
+frame = 1
+
+[node name="Triangulator" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 670.666, 382.265 )
+loop_track = ExtResource( 2 )
+is_percussion = true
+is_always_happy = true
+
+[node name="AnimatedSprite" parent="Level/Triangulator" index="0"]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 1 )
+animation = "happy"
+frame = 1
+
+[node name="CollisionShape2D" parent="Level/Triangulator" index="2"]
+position = Vector2( 1.36035, 5.44153 )
+
+[node name="Tubist" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 377.115, 345.215 )
+loop_track = ExtResource( 4 )
+
+[node name="AnimatedSprite" parent="Level/Tubist" index="0"]
+frames = ExtResource( 9 )
+animation = "happy"
+frame = 1
+
+[node name="Trumpeteer" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 229.9, 342.001 )
+loop_track = ExtResource( 1 )
+
+[node name="AnimatedSprite" parent="Level/Trumpeteer" index="0"]
+frames = ExtResource( 8 )
+animation = "happy"
+frame = 0
+
+[node name="ProgressBar" parent="Level" instance=ExtResource( 13 )]
+max_value = 35.0
+
+[editable path="Level/Snarer"]
+
+[editable path="Level/Triangulator"]
+
+[editable path="Level/Tubist"]
+
+[editable path="Level/Trumpeteer"]

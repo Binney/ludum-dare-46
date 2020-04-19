@@ -22,3 +22,15 @@ func _on_Level_1_Btn_pressed():
 
 func _on_Level_2_Btn_pressed():
 	 get_tree().change_scene("res://LevelTwo.tscn")
+
+
+func _on_Tutorial_1_Btn_pressed():
+	 get_tree().change_scene("res://TutorialOne.tscn")
+
+
+func _on_Tutorial_2_Btn_pressed():
+	 get_tree().change_scene("res://TutorialTwo.tscn")
+
+
+func _on_Tutorial_3_Btn_pressed():
+	 get_tree().change_scene("res://TutorialThree.tscn")

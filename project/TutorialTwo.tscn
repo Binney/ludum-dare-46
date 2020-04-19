@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=2]
@@ -8,10 +8,8 @@
 [ext_resource path="res://sprite/triangle2.png" type="Texture" id=6]
 [ext_resource path="res://sprite/triangle1.png" type="Texture" id=7]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=8]
-[ext_resource path="res://music/song_4/song 4 trumpet.ogg" type="AudioStream" id=9]
 [ext_resource path="res://music/song_4/song 4 tuba.ogg" type="AudioStream" id=10]
 [ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=11]
-[ext_resource path="res://sprite/GuitarMouse.tres" type="SpriteFrames" id=12]
 [ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -22,7 +20,7 @@ animations = [ {
 "speed": 2.5
 } ]
 
-[node name="LevelTwo" type="Node2D"]
+[node name="TutorialTwo" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
 
@@ -62,22 +60,11 @@ frames = ExtResource( 11 )
 animation = "happy"
 frame = 1
 
-[node name="Trumpeteer" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 229.9, 342.001 )
-loop_track = ExtResource( 9 )
-
-[node name="AnimatedSprite" parent="Level/Trumpeteer" index="0"]
-frames = ExtResource( 12 )
-animation = "happy"
-frame = 0
-
 [node name="ProgressBar" parent="Level" instance=ExtResource( 13 )]
-max_value = 25.0
+max_value = 30.0
 
 [editable path="Level/Snarer"]
 
 [editable path="Level/Triangulator"]
 
 [editable path="Level/Tubist"]
-
-[editable path="Level/Trumpeteer"]

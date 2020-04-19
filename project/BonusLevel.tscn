@@ -31,6 +31,7 @@ loop_track = ExtResource( 3 )
 position = Vector2( 594.001, 347.001 )
 frames = ExtResource( 21 )
 animation = "happy"
+frame = 3
 
 [node name="AudioStreamPlayer" parent="Tuba Mous" index="1"]
 bus = "Master"
@@ -47,7 +48,7 @@ loop_track = ExtResource( 10 )
 position = Vector2( 77.0001, 1 )
 frames = ExtResource( 5 )
 animation = "happy"
-frame = 1
+frame = 3
 
 [node name="AudioStreamPlayer" parent="Floot Maus" index="1"]
 bus = "Master"
@@ -65,6 +66,7 @@ is_percussion = true
 position = Vector2( -2, 0.999542 )
 frames = ExtResource( 8 )
 animation = "happy"
+frame = 3
 
 [node name="AudioStreamPlayer" parent="Snare" index="1"]
 bus = "Master"
@@ -87,7 +89,7 @@ loop_track = ExtResource( 2 )
 [node name="AnimatedSprite" parent="Guitar" index="0"]
 frames = ExtResource( 20 )
 animation = "happy"
-frame = 1
+frame = 0
 
 [node name="AudioStreamPlayer" parent="Guitar" index="1"]
 bus = "Master"

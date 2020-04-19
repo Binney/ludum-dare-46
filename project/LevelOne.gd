@@ -16,7 +16,13 @@ func _process(delta):
 	
 	var scroll = Vector2(WALKING_SPEED, 0);
 	$CountrysideBackground.scroll_offset -= scroll
+	var is_sad = false;
 	for child in get_children():
 		if (child is Mousician && child.is_sad()):
-			sad_time += delta
+			is_sad = true
 			break
+			
+	if is_sad:
+		sad_time += delta
+			
+	$ProgressBar.set_is_sad(is_sad)

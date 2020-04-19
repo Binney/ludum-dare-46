@@ -19,6 +19,7 @@ position = Vector2( -1, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 1 )
 animation = "sad_guitar"
+frame = 3
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -28,13 +29,16 @@ bus = "Healthy"
 shape = SubResource( 1 )
 
 [node name="ActionMenu" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Sharpen" parent="ActionMenu" instance=ExtResource( 3 )]
 position = Vector2( 0, -50 )
+action = "sharpen"
 
 [node name="Flatten" parent="ActionMenu" instance=ExtResource( 3 )]
 position = Vector2( 0, 50 )
+action = "flatten"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionMenu"]
 scale = Vector2( -10.9485, -41.0251 )

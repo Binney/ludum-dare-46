@@ -143,5 +143,5 @@ position = Vector2( 284.303, 376.219 )
 loop_track = ExtResource( 2 )
 
 [node name="Tubist" parent="." instance=ExtResource( 16 )]
-position = Vector2( 152.171, 376.549 )
+position = Vector2( 152.171, 375.994 )
 loop_track = ExtResource( 17 )

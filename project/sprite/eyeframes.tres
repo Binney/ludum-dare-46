@@ -1,18 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=2]
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
 
-[ext_resource path="res://sprite/eye1.png" type="Texture" id=1]
-[ext_resource path="res://sprite/eye0.png" type="Texture" id=2]
-[ext_resource path="res://sprite/eye1sad.png" type="Texture" id=3]
-[ext_resource path="res://sprite/eye0sad.png" type="Texture" id=4]
+[ext_resource path="res://sprite/tuba1.png" type="Texture" id=1]
+[ext_resource path="res://sprite/tuba2.png" type="Texture" id=2]
+[ext_resource path="res://sprite/guitar2.png" type="Texture" id=3]
+[ext_resource path="res://sprite/guitar0.png" type="Texture" id=4]
+[ext_resource path="res://sprite/tuba0.png" type="Texture" id=5]
+[ext_resource path="res://sprite/tuba3.png" type="Texture" id=6]
+[ext_resource path="res://sprite/guitar1.png" type="Texture" id=7]
+[ext_resource path="res://sprite/guitar3.png" type="Texture" id=8]
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "sad",
 "speed": 5.0

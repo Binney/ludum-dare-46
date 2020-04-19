@@ -1,23 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprite/eyeframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Mousician.gd" type="Script" id=2]
+[ext_resource path="res://ActionButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ActionMenu.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.9053, 109.394 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 954.333, 105.412 )
 
 [node name="Mousician" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 1 )
-frame = 1
-playing = true
 position = Vector2( -1, 0 )
 scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 1 )
+playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = "Healthy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="ActionMenu" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sharpen" parent="ActionMenu" instance=ExtResource( 3 )]
+position = Vector2( 0, -50 )
+
+[node name="Flatten" parent="ActionMenu" instance=ExtResource( 3 )]
+position = Vector2( 0, 50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionMenu"]
+scale = Vector2( -10.9485, -41.0251 )
+shape = SubResource( 2 )
+[connection signal="cancel" from="ActionMenu" to="." method="_on_ActionMenu_cancel"]
+[connection signal="performAction" from="ActionMenu/Sharpen" to="." method="_on_Sharpen_performAction"]
+[connection signal="performAction" from="ActionMenu/Flatten" to="." method="_on_Flatten_performAction"]

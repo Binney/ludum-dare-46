@@ -19,18 +19,13 @@ func _process(delta):
 	if ((!is_sad()) && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
 		become_sad()
 
-func _input_event(_camera, event, _shape):
-	if (event is InputEventScreenTouch):
-		if (event.index == 0 && is_sad()):
-			if (event.pressed):
-				touch_start = event.position
-			elif (touch_start):
-				var touch_vector = (event.position - touch_start).normalized()
-				if ((pitch_offset != 0) && (touch_vector.dot(Vector2(0, pitch_offset)) > 0.75)):
-					pitch_offset = 0
-				if ((time_offset != 0) && (touch_vector.dot(Vector2(time_offset, 0)) < -0.75)):
-					time_offset = 0
-				update_output()
+func is_open_menu_event(event):
+	return event is InputEventScreenTouch && event.is_pressed()
+
+func _input_event(viewport, event, shape_idx):
+	if (!$ActionMenu.visible && is_open_menu_event(event)):
+		var absolute_event_position = event.get_position()
+		show_menu(absolute_event_position - global_position)
 
 func is_sad():
 	return time_offset != 0 || pitch_offset != 0
@@ -42,9 +37,9 @@ func play_loop():
 func become_sad():
 	match (rng.randi_range(0, 1 if is_percussion else 3)):
 		0:
-			time_offset = 1
+			pitch_offset = 1
 		1:
-			time_offset = -1
+			pitch_offset = -1
 		2:
 			pitch_offset = 1
 		3:
@@ -71,3 +66,27 @@ func update_output():
 		[0, 1]:
 			$AnimatedSprite.play("sad")
 			$AudioStreamPlayer.bus = "Fast"
+
+
+func _on_Sharpen_performAction():
+	if (pitch_offset < 0):
+		pitch_offset = 0
+	update_output()
+	hide_menu()
+
+func _on_Flatten_performAction():
+	if (pitch_offset > 0):
+		pitch_offset = 0
+	update_output()
+	hide_menu()
+
+func show_menu(position):
+	$ActionMenu.set_position(position)
+	$ActionMenu.visible = true
+
+func hide_menu():
+	$ActionMenu.visible = false
+
+
+func _on_ActionMenu_cancel():
+	hide_menu()

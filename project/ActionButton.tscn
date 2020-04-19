@@ -20,4 +20,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.101954 )
 animation = "flatten"
+frame = 2
 playing = true

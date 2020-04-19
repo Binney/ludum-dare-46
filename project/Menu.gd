@@ -18,3 +18,7 @@ func _ready():
 
 func _on_Level_1_Btn_pressed():
 	 get_tree().change_scene("res://LevelOne.tscn")
+
+
+func _on_Level_2_Btn_pressed():
+	 get_tree().change_scene("res://LevelTwo.tscn")

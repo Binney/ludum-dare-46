@@ -11,5 +11,5 @@ dest_files=[ "res://.import/intro_trumpet_1.ogg-bcfcf9e92cf0177e519f5405215d34e8
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

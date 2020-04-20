@@ -6,8 +6,8 @@
 [ext_resource path="res://UnlockableLevelButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.74, 0.885714, 0.968571 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.691406, 0.691406, 0.691406, 1, 1, 1, 1, 1 )
+offsets = PoolRealArray( 0, 0.393035, 0.733002, 0.99005 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.808594, 0.808594, 0.808594, 1, 0.976563, 0.976563, 0.976563, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -19,8 +19,8 @@ extents = Vector2( 80, 80 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 287.75 )
-scale = Vector2( 0.5, 576.5 )
+position = Vector2( 512, 299.75 )
+scale = Vector2( 0.5, 600.5 )
 texture = SubResource( 2 )
 
 [node name="Cheesometer0" parent="." instance=ExtResource( 3 )]
@@ -109,7 +109,7 @@ position = Vector2( 16, 419 )
 scale = Vector2( 0.48, 0.48 )
 frames = ExtResource( 2 )
 animation = "happy"
-frame = 2
+frame = 1
 playing = true
 centered = false
 

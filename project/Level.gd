@@ -5,25 +5,52 @@ const WALKING_SPEED = 1
 const Mousician = preload('Mousician.gd')
 
 var sad_time = 0
+var total_time = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$ProgressBar.value += delta
+var intro_length = 0
+var loop_length = 0
 
-	if ($ProgressBar.value == $ProgressBar.max_value):
-		var player_state = get_tree().get_root().get_child(0)
-		player_state.set_level_score(100 * ($ProgressBar.max_value - sad_time) / $ProgressBar.max_value)
-		get_tree().change_scene('res://GameOver.tscn')
+var target_positions = {}
+var start_position_x = -140
+
+func _ready():
+	var intro_walk_distance = 0
 	
-	var scroll = Vector2(WALKING_SPEED, 0);
-	$CountrysideBackground.scroll_offset -= scroll
-	var is_sad = false;
 	for child in get_children():
-		if (child is Mousician && child.is_sad()):
-			is_sad = true
-			break
-			
-	if is_sad:
-		sad_time += delta
-			
-	$ProgressBar.set_is_sad(is_sad)
+		if (child is Mousician):
+			intro_length = max(intro_length, child.intro_track.get_length())
+			loop_length = max(loop_length, child.loop_track.get_length())
+			intro_walk_distance = max(intro_walk_distance, child.position.x)
+			target_positions[child] = child.position.x
+			child.position.x = start_position_x
+
+	$ProgressBar.max_value = 4 * loop_length
+
+func _process(delta):
+	total_time += delta
+	
+	if (total_time > intro_length):
+		$ProgressBar.value += delta
+		if ($ProgressBar.value == $ProgressBar.max_value):
+			var player_state = get_tree().get_root().get_child(0)
+			player_state.set_level_score(100 * ($ProgressBar.max_value - sad_time) / $ProgressBar.max_value)
+			get_tree().change_scene('res://GameOver.tscn')
+	
+		var scroll = Vector2(WALKING_SPEED, 0);
+		$CountrysideBackground.scroll_offset -= scroll
+		var is_sad = false;
+		for child in get_children():
+			if (child is Mousician && child.is_sad()):
+				is_sad = true
+				break
+				
+		if is_sad:
+			sad_time += delta
+				
+		$ProgressBar.set_is_sad(is_sad)
+		
+	else:
+		var intro_progress = total_time / intro_length
+		for child in get_children():
+			if (child is Mousician):
+				child.position.x = start_position_x + (intro_progress * (target_positions[child] - start_position_x))

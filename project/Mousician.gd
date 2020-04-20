@@ -18,7 +18,7 @@ var track_start_time
 var cool_off_start_time = -SADNESS_COOL_OFF_TIME_MS
 var sadness_start_time = 0
 
-var is_intro = true
+var is_intro
 
 var busId
 var pitchShiftEffect
@@ -29,10 +29,7 @@ func _ready():
 	$AnimatedSprite.frames = frames
 	$AnimatedSprite.play("happy")
 	setUpBus()
-	if (intro_track == null):
-		play_loop()
-	else:
-		play_intro()
+	play_intro()
 
 func set_frames(new_frames):
 	frames = new_frames
@@ -53,6 +50,7 @@ func _process(delta):
 	
 	if (is_sad() && (OS.get_ticks_msec() - sadness_start_time) > SADNESS_EXCLAMATION_DELAY_MS):
 		$Exclamation.visible = true
+		print('time_offset %d pitch_offset %d' % [time_offset, pitch_offset])
 		
 	if (is_percussion && time_offset != 0):
 		$AudioStreamPlayer.pitch_scale += (time_offset * delta / 50)
@@ -65,11 +63,16 @@ func is_cooling_off():
 
 func play_loop():
 	is_intro = false
+	loop_track.loop = true
 	$AudioStreamPlayer.stream = loop_track
 	track_start_time = OS.get_ticks_usec()
 	$AudioStreamPlayer.play()
 	
 func play_intro():
+	is_intro = true
+	if (intro_track == null):
+		intro_track = loop_track
+	intro_track.loop = false
 	$AudioStreamPlayer.stream = intro_track
 	$AudioStreamPlayer.play()
 

@@ -15,7 +15,7 @@ func set_level_score(percent):
 	else:
 		cheese_array[level_index] = max(1, cheese_array[level_index])
 
-var cheese_array = [0,0,0,0,0] ## qq number of levels
+var cheese_array = [0,0,0,0,0,0] ## qq number of levels
 
 func get_total_score():
 	var overall_score = 0

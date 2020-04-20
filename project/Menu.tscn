@@ -37,7 +37,7 @@ margin_top = 456.0
 margin_right = 616.0
 margin_bottom = 520.0
 text = "Secret Bonus Level (shh)"
-unlocked_at_cheeses = 12
+unlocked_at_cheeses = 10
 
 [node name="Level1_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0

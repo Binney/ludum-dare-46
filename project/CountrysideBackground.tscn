@@ -1,22 +1,19 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=1]
-[ext_resource path="res://background/trees_near.png" type="Texture" id=2]
 [ext_resource path="res://background/tree1.png" type="Texture" id=3]
 [ext_resource path="res://background/cloud0.png" type="Texture" id=4]
 [ext_resource path="res://background/cloud1.png" type="Texture" id=5]
-[ext_resource path="res://background/trees_far.png" type="Texture" id=6]
 [ext_resource path="res://background/tree0.png" type="Texture" id=7]
 [ext_resource path="res://background/tree3.png" type="Texture" id=9]
 [ext_resource path="res://background/countryside-colour.png" type="Texture" id=10]
 [ext_resource path="res://background/tree4.png" type="Texture" id=11]
 [ext_resource path="res://background/tree2.png" type="Texture" id=12]
-[ext_resource path="res://background/trees_mid.png" type="Texture" id=13]
 [ext_resource path="res://background/wall-coloured.png" type="Texture" id=14]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0.254286, 0.445714, 0.608571, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
+offsets = PoolRealArray( 0.133333, 0.361905 )
+colors = PoolColorArray( 0.627451, 0.894118, 1, 1, 1, 1, 1, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -25,10 +22,12 @@ gradient = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="base" type="Sprite" parent="."]
-position = Vector2( -7.37659, -6.45453 )
-scale = Vector2( 0.51015, 623.705 )
+position = Vector2( 576.185, -237.993 )
+rotation = 1.5708
+scale = Vector2( 0.218819, -1026.7 )
 texture = SubResource( 2 )
 centered = false
+offset = Vector2( 1085.45, -0.56074 )
 
 [node name="Horizon" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 0.5 )
@@ -57,61 +56,76 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="TreesFar" type="ParallaxLayer" parent="."]
+scale = Vector2( 0.75, 0.75 )
 motion_scale = Vector2( 0.75, 0.75 )
 motion_mirroring = Vector2( 1028, 0 )
 
-[node name="trees_far" type="Sprite" parent="TreesFar"]
-position = Vector2( 413.819, 299.744 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 895.935, 331.304 )
+[node name="tree0" type="Sprite" parent="TreesFar"]
+position = Vector2( 439.477, -20.5288 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="tree2" type="Sprite" parent="TreesFar"]
+position = Vector2( 469.262, 310.234 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="tree1" type="Sprite" parent="TreesFar"]
+position = Vector2( 540.426, 347.523 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="tree3" type="Sprite" parent="TreesFar"]
+position = Vector2( 1042.39, 324.074 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
 
 [node name="TreesMiddle" type="ParallaxLayer" parent="."]
 scale = Vector2( 0.8, 0.8 )
 motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 1028, 0 )
 
-[node name="trees_middle" type="Sprite" parent="TreesMiddle"]
-position = Vector2( 340.906, 419.687 )
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( -7.43152, -7.84123, 636.828, 320.747 )
+[node name="tree1" type="Sprite" parent="TreesMiddle"]
+position = Vector2( 1042.65, 353.441 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="tree2" type="Sprite" parent="TreesMiddle"]
+position = Vector2( 973.278, 331.685 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="tree3" type="Sprite" parent="TreesMiddle"]
+position = Vector2( 1190.58, 332.211 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+
+[node name="tree4" type="Sprite" parent="TreesMiddle"]
+position = Vector2( 803.164, 351.508 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
 
 [node name="TreesClosest" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.95, 0.95 )
+motion_scale = Vector2( 0.9, 0.9 )
 motion_mirroring = Vector2( 1028, 0 )
 
 [node name="tree0" type="Sprite" parent="TreesClosest"]
-position = Vector2( 35.4235, 179.597 )
+position = Vector2( 351.581, -16.423 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="tree1" type="Sprite" parent="TreesClosest"]
-position = Vector2( 257.056, 325.069 )
+position = Vector2( 225.524, 262.226 )
 texture = ExtResource( 3 )
 
-[node name="tree2" type="Sprite" parent="TreesClosest"]
-position = Vector2( 392.236, 343.932 )
-texture = ExtResource( 12 )
-
-[node name="tree3" type="Sprite" parent="TreesClosest"]
-position = Vector2( 653.229, 336.591 )
-texture = ExtResource( 9 )
-
 [node name="tree4" type="Sprite" parent="TreesClosest"]
-position = Vector2( 862.53, 330.002 )
+position = Vector2( 468.699, 256.893 )
 texture = ExtResource( 11 )
 
-[node name="TreesClosest2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.95, 0.95 )
-motion_mirroring = Vector2( 1000, 0 )
-
-[node name="trees_near" type="Sprite" parent="TreesClosest2"]
-position = Vector2( 494.771, 323.697 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( -5.09882, -10.1739, 1025.22, 324.246 )
+[node name="tree3" type="Sprite" parent="TreesClosest"]
+position = Vector2( 908.826, 242.927 )
+texture = ExtResource( 9 )
 
 [node name="Wall" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 1024, 0 )

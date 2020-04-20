@@ -7,12 +7,12 @@
 [ext_resource path="res://background/cloud1.png" type="Texture" id=5]
 [ext_resource path="res://background/trees_far.png" type="Texture" id=6]
 [ext_resource path="res://background/tree0.png" type="Texture" id=7]
-[ext_resource path="res://background/wall.png" type="Texture" id=8]
 [ext_resource path="res://background/tree3.png" type="Texture" id=9]
 [ext_resource path="res://background/countryside-colour.png" type="Texture" id=10]
 [ext_resource path="res://background/tree4.png" type="Texture" id=11]
 [ext_resource path="res://background/tree2.png" type="Texture" id=12]
 [ext_resource path="res://background/trees_mid.png" type="Texture" id=13]
+[ext_resource path="res://background/wall-coloured.png" type="Texture" id=14]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.254286, 0.445714, 0.608571, 1 )
@@ -114,20 +114,9 @@ region_enabled = true
 region_rect = Rect2( -5.09882, -10.1739, 1025.22, 324.246 )
 
 [node name="Wall" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1028, 0 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="wall" type="Sprite" parent="Wall"]
-position = Vector2( 0.335464, 372.172 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 8 )
+position = Vector2( 1, 370 )
+texture = ExtResource( 14 )
 centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 763, 278 )
-
-[node name="wall2" type="Sprite" parent="Wall"]
-position = Vector2( 550.122, 372.727 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 8 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 763, 278 )

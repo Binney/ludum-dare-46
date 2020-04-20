@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-c6e9ecae6e12110ae0b36ad4c770e81c.stex"
+path="res://.import/wall-coloured.png-4f1f3cd110b07c7c57888cc28491d52a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://background/wall.png"
-dest_files=[ "res://.import/wall.png-c6e9ecae6e12110ae0b36ad4c770e81c.stex" ]
+source_file="res://background/wall-coloured.png"
+dest_files=[ "res://.import/wall-coloured.png-4f1f3cd110b07c7c57888cc28491d52a.stex" ]
 
 [params]
 

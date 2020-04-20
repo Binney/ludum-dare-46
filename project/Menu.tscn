@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://sprite/FluteMouse.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Cheesometer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UnlockableLevelButton.tscn" type="PackedScene" id=4]
 
@@ -11,87 +12,112 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.691406, 0.691406, 0.691406, 1
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 80, 80 )
+
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 287.75 )
-scale = Vector2( 1, 576.5 )
+position = Vector2( 512, 287.75 )
+scale = Vector2( 0.5, 576.5 )
 texture = SubResource( 2 )
 
 [node name="Cheesometer0" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.266, 96 )
+position = Vector2( 755.266, 76 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Cheesometer1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.266, 176 )
+position = Vector2( 755.266, 156 )
 scale = Vector2( 0.1, 0.1 )
 level_index = 1
 
 [node name="Cheesometer2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.266, 255 )
+position = Vector2( 755.266, 235 )
 scale = Vector2( 0.1, 0.1 )
 level_index = 2
 
 [node name="Cheesometer3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.266, 328 )
+position = Vector2( 755.266, 308 )
 scale = Vector2( 0.1, 0.1 )
 level_index = 3
 
 [node name="Cheesometer4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.266, 408 )
+position = Vector2( 755.266, 388 )
 scale = Vector2( 0.1, 0.1 )
 level_index = 4
 
 [node name="BonusLevel_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 456.0
+margin_top = 436.0
 margin_right = 616.0
-margin_bottom = 520.0
+margin_bottom = 500.0
 text = "Secret Bonus Level (shh)"
 unlocked_at_cheeses = 10
 
 [node name="Level1_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 67.0
+margin_top = 47.0
 margin_right = 616.0
-margin_bottom = 128.0
+margin_bottom = 108.0
 text = "Level 1"
 
 [node name="Level2_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 144.0
+margin_top = 124.0
 margin_right = 616.0
-margin_bottom = 207.0
+margin_bottom = 187.0
 text = "Level 2"
 unlocked_at_cheeses = 1
 
 [node name="Level3_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 224.0
+margin_top = 204.0
 margin_right = 616.0
-margin_bottom = 287.0
+margin_bottom = 267.0
 text = "Level 3"
 unlocked_at_cheeses = 2
 
 [node name="Level4_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 304.0
+margin_top = 284.0
 margin_right = 616.0
-margin_bottom = 367.0
+margin_bottom = 347.0
 text = "Level 4"
 unlocked_at_cheeses = 4
 
 [node name="Level5_button" parent="." instance=ExtResource( 4 )]
 margin_left = 320.0
-margin_top = 376.0
+margin_top = 356.0
 margin_right = 616.0
-margin_bottom = 439.0
+margin_bottom = 419.0
 text = "Level 5"
 unlocked_at_cheeses = 6
+
+[node name="MenuMouse" type="Area2D" parent="."]
+position = Vector2( -128, 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuMouse"]
+position = Vector2( 88, 488 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MenuMouse"]
+position = Vector2( 16, 419 )
+scale = Vector2( 0.48, 0.48 )
+frames = ExtResource( 2 )
+animation = "happy"
+frame = 2
+playing = true
+centered = false
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="MenuMouse"]
 [connection signal="pressed" from="BonusLevel_button" to="." method="_on_BonusLevel_button_pressed"]
 [connection signal="pressed" from="Level1_button" to="." method="_on_Level1_button_pressed"]
 [connection signal="pressed" from="Level2_button" to="." method="_on_Level2_button_pressed"]
 [connection signal="pressed" from="Level3_button" to="." method="_on_Level3_button_pressed"]
 [connection signal="pressed" from="Level4_button" to="." method="_on_Level4_button_pressed"]
 [connection signal="pressed" from="Level5_button" to="." method="_on_Level5_button_pressed"]
+[connection signal="screen_exited" from="MenuMouse/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

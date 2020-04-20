@@ -29,7 +29,6 @@ loop_track = ExtResource( 6 )
 position = Vector2( 594.001, 347.001 )
 frames = ExtResource( 21 )
 animation = "happy"
-frame = 0
 
 [node name="CollisionShape2D" parent="Tuba Mous" index="2"]
 position = Vector2( 596.001, 360.001 )
@@ -55,7 +54,6 @@ is_percussion = true
 position = Vector2( -2, 0.999542 )
 frames = ExtResource( 8 )
 animation = "happy"
-frame = 0
 
 [node name="CollisionShape2D" parent="Snare" index="2"]
 position = Vector2( 0, 3.99951 )

@@ -11,17 +11,23 @@ var intro_length = 0
 var loop_length = 0
 
 var target_positions = {}
-var start_position_x = -140
+var start_positions = {}
+const INITIAL_START_POSITION = -140
 
 func _ready():
-	var intro_walk_distance = 0
+	var max_walk_distance = 0
 	
 	for child in get_children():
 		if (child is Mousician):
 			intro_length = max(intro_length, child.intro_track.get_length())
 			loop_length = max(loop_length, child.loop_track.get_length())
-			intro_walk_distance = max(intro_walk_distance, child.position.x)
+			max_walk_distance = max(max_walk_distance, child.position.x)
+
+	for child in get_children():
+		if (child is Mousician):
 			target_positions[child] = child.position.x
+			var start_position_x = child.position.x - max_walk_distance + INITIAL_START_POSITION
+			start_positions[child] = start_position_x
 			child.position.x = start_position_x
 
 	$ProgressBar.max_value = 4 * loop_length
@@ -53,4 +59,4 @@ func _process(delta):
 		var intro_progress = total_time / intro_length
 		for child in get_children():
 			if (child is Mousician):
-				child.position.x = start_position_x + (intro_progress * (target_positions[child] - start_position_x))
+				child.position.x = start_positions[child] + (intro_progress * (target_positions[child] - start_positions[child]))

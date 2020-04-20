@@ -57,6 +57,7 @@ centered = false
 
 [node name="TreesFar" type="ParallaxLayer" parent="."]
 modulate = Color( 0.909804, 0.972549, 1, 0.603922 )
+scale = Vector2( 0.75, 0.75 )
 motion_scale = Vector2( 0.75, 0.75 )
 motion_mirroring = Vector2( 1028, 0 )
 
@@ -83,6 +84,7 @@ texture = ExtResource( 11 )
 
 [node name="TreesMiddle" type="ParallaxLayer" parent="."]
 modulate = Color( 0.835294, 1, 0.956863, 0.960784 )
+scale = Vector2( 0.8, 0.8 )
 motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 1028, 0 )
 

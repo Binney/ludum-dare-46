@@ -47,13 +47,11 @@ func setUpBus():
 
 func _process(delta):
 	if (!is_always_happy && !is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (sadness_chance_per_second * delta))):
-		print(sadness_chance_per_second)
 		become_sad()
 	
 	if (is_sad() && (OS.get_ticks_msec() - sadness_start_time) > SADNESS_EXCLAMATION_DELAY_MS):
 		$Exclamation.visible = true
-		print('time_offset %d pitch_offset %d' % [time_offset, pitch_offset])
-		
+
 	if (is_percussion && time_offset != 0):
 		$AudioStreamPlayer.pitch_scale += (time_offset * delta / 50)
 

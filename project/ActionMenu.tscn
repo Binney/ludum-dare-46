@@ -61,7 +61,7 @@ action = "sharpen"
 
 [node name="AnimatedSprite" parent="Sharpen" index="2"]
 frames = SubResource( 2 )
-frame = 1
+frame = 0
 
 [node name="Flatten" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 50 )
@@ -69,7 +69,7 @@ action = "flatten"
 
 [node name="AnimatedSprite" parent="Flatten" index="2"]
 frames = SubResource( 3 )
-frame = 0
+frame = 1
 
 [node name="Push" parent="." instance=ExtResource( 1 )]
 position = Vector2( 50, 0 )
@@ -77,7 +77,6 @@ action = "push"
 
 [node name="AnimatedSprite" parent="Push" index="2"]
 frames = SubResource( 4 )
-frame = 1
 
 [node name="Pull" parent="." instance=ExtResource( 1 )]
 position = Vector2( -50, 0 )
@@ -85,7 +84,6 @@ action = "pull"
 
 [node name="AnimatedSprite" parent="Pull" index="2"]
 frames = SubResource( 5 )
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( -10.9485, -41.0251 )

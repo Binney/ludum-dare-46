@@ -16,23 +16,31 @@ func _input(event):
 		var hit_button = false
 		for hit in hits:
 			if (hit.collider is ActionButton && currentMouse != null):
-				currentMouse.handleAction(hit.collider.action)
-				self.visible = false
+				if (!event.is_pressed()):
+					currentMouse.handleAction(hit.collider.action)
+					close_menu()
+				hit_button = true
 		
 		if !hit_button && event.is_pressed():
 			var opened_menu = false
 			for hit in hits:
 				if (hit.collider is Mousician && hit.collider != currentMouse && !hit.collider.is_always_happy):
 					self.position = event.get_position()
-					$Sharpen.visible = !hit.collider.is_percussion
-					$Flatten.visible = !hit.collider.is_percussion
-					currentMouse = hit.collider
-					self.visible = true
+					open_menu(hit.collider)
 					opened_menu = true
-					
+			
 			if (!opened_menu):
-				self.visible = false
-				currentMouse = null
+				close_menu()
+
+func open_menu(mouse):
+	$Sharpen.visible = !mouse.is_percussion
+	$Flatten.visible = !mouse.is_percussion
+	currentMouse = mouse
+	self.visible = true
+
+func close_menu():
+	self.visible = false
+	currentMouse = null
 
 func _input_event(viewport, event, shape_idx):
 	if (event is InputEventScreenTouch && event.is_pressed()):

@@ -1,0 +1,100 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://ActionButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprite/push3.png" type="Texture" id=2]
+[ext_resource path="res://ActionMenu.gd" type="Script" id=3]
+[ext_resource path="res://sprite/pull2.png" type="Texture" id=4]
+[ext_resource path="res://sprite/pull1.png" type="Texture" id=5]
+[ext_resource path="res://sprite/push2.png" type="Texture" id=6]
+[ext_resource path="res://sprite/flatten1.png" type="Texture" id=7]
+[ext_resource path="res://sprite/sharpen2.png" type="Texture" id=8]
+[ext_resource path="res://sprite/sharpen1.png" type="Texture" id=9]
+[ext_resource path="res://sprite/sharpen3.png" type="Texture" id=10]
+[ext_resource path="res://sprite/flatten2.png" type="Texture" id=11]
+[ext_resource path="res://sprite/flatten3.png" type="Texture" id=12]
+[ext_resource path="res://sprite/push1.png" type="Texture" id=13]
+[ext_resource path="res://sprite/pull3.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 954.333, 105.412 )
+
+[node name="ActionMenu" type="Area2D"]
+visible = false
+z_index = 500
+script = ExtResource( 3 )
+
+[node name="Sharpen" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -50 )
+action = "sharpen"
+
+[node name="AnimatedSprite" parent="Sharpen" index="2"]
+frames = SubResource( 2 )
+frame = 1
+
+[node name="Flatten" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 50 )
+action = "flatten"
+
+[node name="AnimatedSprite" parent="Flatten" index="2"]
+frames = SubResource( 3 )
+frame = 0
+
+[node name="Push" parent="." instance=ExtResource( 1 )]
+position = Vector2( 50, 0 )
+action = "push"
+
+[node name="AnimatedSprite" parent="Push" index="2"]
+frames = SubResource( 4 )
+frame = 1
+
+[node name="Pull" parent="." instance=ExtResource( 1 )]
+position = Vector2( -50, 0 )
+action = "pull"
+
+[node name="AnimatedSprite" parent="Pull" index="2"]
+frames = SubResource( 5 )
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( -10.9485, -41.0251 )
+shape = SubResource( 1 )
+
+[editable path="Sharpen"]
+
+[editable path="Flatten"]
+
+[editable path="Push"]
+
+[editable path="Pull"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://music/song_3/song 3 backing.ogg" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://music/song_3/song 3 -tuba.ogg" type="AudioStream" id=6]
 [ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://ActionMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://music/song_3/song 3 -floot.ogg" type="AudioStream" id=10]
 [ext_resource path="res://music/song_3/song 3 snare.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Mousician.tscn" type="PackedScene" id=16]
@@ -30,9 +31,6 @@ frames = ExtResource( 21 )
 animation = "happy"
 frame = 0
 
-[node name="AudioStreamPlayer" parent="Tuba Mous" index="1"]
-bus = "Master"
-
 [node name="CollisionShape2D" parent="Tuba Mous" index="2"]
 position = Vector2( 596.001, 360.001 )
 
@@ -44,10 +42,6 @@ loop_track = ExtResource( 10 )
 position = Vector2( 77.0001, 1 )
 frames = ExtResource( 5 )
 animation = "happy"
-frame = 3
-
-[node name="AudioStreamPlayer" parent="Floot Maus" index="1"]
-bus = "Master"
 
 [node name="CollisionShape2D" parent="Floot Maus" index="2"]
 position = Vector2( 80.0001, 15 )
@@ -62,9 +56,6 @@ position = Vector2( -2, 0.999542 )
 frames = ExtResource( 8 )
 animation = "happy"
 frame = 0
-
-[node name="AudioStreamPlayer" parent="Snare" index="1"]
-bus = "Master"
 
 [node name="CollisionShape2D" parent="Snare" index="2"]
 position = Vector2( 0, 3.99951 )
@@ -82,10 +73,8 @@ loop_track = ExtResource( 3 )
 [node name="AnimatedSprite" parent="Guitar" index="0"]
 frames = ExtResource( 20 )
 animation = "happy"
-frame = 3
 
-[node name="AudioStreamPlayer" parent="Guitar" index="1"]
-bus = "Master"
+[node name="ActionMenu" parent="." instance=ExtResource( 9 )]
 
 [editable path="Tuba Mous"]
 

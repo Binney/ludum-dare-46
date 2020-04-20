@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UnlockableLevelButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/Mawns_Handwriting_Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/MouseUITheme.tres" type="Theme" id=3]
 
 [node name="Button" type="Button"]
 margin_right = 296.0
 margin_bottom = 63.0
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 disabled = true
 text = "Default Text"

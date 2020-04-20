@@ -17,7 +17,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	randomise_mouse()
 
 func randomise_mouse():
-	var random_animation = ANIMATION_NAMES[rng.randi_range(0, ANIMATION_NAMES.size())]
+	var random_animation = ANIMATION_NAMES[rng.randi_range(0, ANIMATION_NAMES.size() - 1)]
 	$MenuMouse/AnimatedSprite.frames = load("res://sprite/" + random_animation + ".tres")
 
 func _on_Level1_button_pressed():

@@ -15,7 +15,7 @@ var pitch_offset = 0
 var time_offset = 0
 const pitch_offset_max = 3
 var track_start_time
-var cool_off_start_time = 0
+var cool_off_start_time = -SADNESS_COOL_OFF_TIME_MS
 var sadness_start_time = 0
 
 var is_intro = true

@@ -57,17 +57,4 @@ intro_track = ExtResource( 6 )
 loop_track = ExtResource( 9 )
 is_always_happy = true
 
-[node name="Exclamation" parent="Rest of the band (competent)" index="0"]
-frame = 1
-
-[node name="AnimatedSprite" parent="Rest of the band (competent)" index="1"]
-frame = 1
-
-[node name="AudioStreamPlayer" parent="Rest of the band (competent)" index="2"]
-stream = ExtResource( 9 )
-volume_db = -6.073
-bus = "mouse-5"
-
 [node name="ActionMenu" parent="." instance=ExtResource( 13 )]
-
-[editable path="Rest of the band (competent)"]

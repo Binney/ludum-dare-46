@@ -3,8 +3,8 @@
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Mousician.tscn" type="PackedScene" id=3]
-[ext_resource path="res://music/song_4/song 4 snare.ogg" type="AudioStream" id=4]
-[ext_resource path="res://music/song_4/song 4 triangle.ogg" type="AudioStream" id=5]
+[ext_resource path="res://music/song_4/song 4 triangle (short).ogg" type="AudioStream" id=4]
+[ext_resource path="res://music/song_4/song 4 snare (short).ogg" type="AudioStream" id=5]
 [ext_resource path="res://sprite/TriangleMouse.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://ActionMenu.tscn" type="PackedScene" id=9]
@@ -18,14 +18,14 @@
 
 [node name="Snarer" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 340, 350 )
-loop_track = ExtResource( 4 )
+loop_track = ExtResource( 5 )
 frames = ExtResource( 8 )
 is_percussion = true
 
 [node name="Triangulator" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 480, 385 )
 scale = Vector2( 0.5, 0.5 )
-loop_track = ExtResource( 5 )
+loop_track = ExtResource( 4 )
 frames = ExtResource( 6 )
 is_percussion = true
 is_always_happy = true

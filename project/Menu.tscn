@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/Mawns_Handwriting_Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Cheesometer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UnlockableLevelButton.tscn" type="PackedScene" id=4]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -53,9 +54,9 @@ __meta__ = {
 
 [node name="Level_2_Btn" type="Button" parent="."]
 margin_left = 232.0
-margin_top = 306.6
+margin_top = 305.883
 margin_right = 556.0
-margin_bottom = 387.6
+margin_bottom = 386.883
 custom_fonts/font = ExtResource( 2 )
 text = "Level 2"
 __meta__ = {
@@ -71,19 +72,16 @@ position = Vector2( 697.371, 346.537 )
 scale = Vector2( 0.1, 0.1 )
 level_index = 1
 
-[node name="Bonus_level_Btn" type="Button" parent="."]
-margin_left = 339.2
-margin_top = 493.5
-margin_right = 663.2
-margin_bottom = 574.5
-custom_fonts/font = ExtResource( 2 )
+[node name="UnlockableButton" parent="." instance=ExtResource( 4 )]
+margin_left = 338.204
+margin_top = 489.221
+margin_right = 662.204
+margin_bottom = 571.221
 text = "Secret Bonus Level (shh)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+unlocked_at_cheeses = 6
 [connection signal="pressed" from="Tutorial_1_Btn" to="." method="_on_Tutorial_1_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_2_Btn" to="." method="_on_Tutorial_2_Btn_pressed"]
 [connection signal="pressed" from="Tutorial_3_Btn" to="." method="_on_Tutorial_3_Btn_pressed"]
 [connection signal="pressed" from="Level_1_Btn" to="." method="_on_Level_1_Btn_pressed"]
 [connection signal="pressed" from="Level_2_Btn" to="." method="_on_Level_2_Btn_pressed"]
-[connection signal="pressed" from="Bonus_level_Btn" to="." method="_on_Bonus_level_Btn_pressed"]
+[connection signal="pressed" from="UnlockableButton" to="." method="_on_UnlockableButton_pressed"]

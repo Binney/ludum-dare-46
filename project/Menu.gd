@@ -24,3 +24,6 @@ func _on_Level4_button_pressed():
 func _on_Level5_button_pressed():
 	player_state.set_level(5)
 	get_tree().change_scene("res://LevelTwo.tscn")
+
+func _on_BonusLevel_button_pressed():
+	get_tree().change_scene("res://BonusLevel.tscn")

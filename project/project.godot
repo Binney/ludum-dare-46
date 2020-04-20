@@ -30,6 +30,8 @@ PlayerState="*res://PlayerState.gd"
 [display]
 
 window/size/resizable=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input_devices]
 

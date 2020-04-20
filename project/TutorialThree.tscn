@@ -21,13 +21,13 @@
 [node name="CountrysideBackground" parent="Level" instance=ExtResource( 12 )]
 
 [node name="Snarer" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 533.817, 345.93 )
+position = Vector2( 480, 350 )
 loop_track = ExtResource( 5 )
 frames = ExtResource( 7 )
 is_percussion = true
 
 [node name="Triangulator" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 670.666, 382.265 )
+position = Vector2( 620, 385 )
 scale = Vector2( 0.5, 0.5 )
 loop_track = ExtResource( 2 )
 frames = ExtResource( 3 )
@@ -35,12 +35,12 @@ is_percussion = true
 is_always_happy = true
 
 [node name="Tubist" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 377.115, 345.215 )
+position = Vector2( 340, 350 )
 loop_track = ExtResource( 4 )
 frames = ExtResource( 9 )
 
 [node name="Trumpeteer" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 229.9, 342.001 )
+position = Vector2( 200, 350 )
 loop_track = ExtResource( 1 )
 frames = ExtResource( 6 )
 

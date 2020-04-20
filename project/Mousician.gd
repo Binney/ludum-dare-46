@@ -5,12 +5,13 @@ export(AudioStream) var loop_track
 export(SpriteFrames) var frames setget set_frames
 export var is_percussion = false
 export var is_always_happy = false
+export var is_always_in_time = false
 
-const SADNESS_CHANCE_PER_SECOND = 0.1
 const SADNESS_COOL_OFF_TIME_MS = 5000
 const SADNESS_EXCLAMATION_DELAY_MS = 3000
 var rng = RandomNumberGenerator.new()
 
+var sadness_chance_per_second = 0.1
 var pitch_offset = 0
 var time_offset = 0
 const pitch_offset_max = 3
@@ -45,7 +46,8 @@ func setUpBus():
 	AudioServer.add_bus_effect(busId, pitchShiftEffect)
 
 func _process(delta):
-	if (!is_always_happy && !is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (SADNESS_CHANCE_PER_SECOND * delta))):
+	if (!is_always_happy && !is_intro && !is_cooling_off() && !is_sad() && (rng.randf() < (sadness_chance_per_second * delta))):
+		print(sadness_chance_per_second)
 		become_sad()
 	
 	if (is_sad() && (OS.get_ticks_msec() - sadness_start_time) > SADNESS_EXCLAMATION_DELAY_MS):
@@ -77,7 +79,7 @@ func play_intro():
 	$AudioStreamPlayer.play()
 
 func become_sad():
-	match (rng.randi_range(0, 1 if is_percussion else 3)):
+	match (rng.randi_range(2 if is_always_in_time else 0, 1 if is_percussion else 3)):
 		0:
 			time_offset = 1
 		1:

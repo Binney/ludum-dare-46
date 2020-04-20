@@ -16,15 +16,18 @@ const INITIAL_START_POSITION = -140
 
 func _ready():
 	var max_walk_distance = 0
+	var child_count = 0
 	
 	for child in get_children():
 		if (child is Mousician):
+			child_count += 1
 			intro_length = max(intro_length, child.intro_track.get_length())
 			loop_length = max(loop_length, child.loop_track.get_length())
 			max_walk_distance = max(max_walk_distance, child.position.x)
 
 	for child in get_children():
 		if (child is Mousician):
+			child.sadness_chance_per_second = 0.5 / child_count
 			target_positions[child] = child.position.x
 			var start_position_x = child.position.x - max_walk_distance + INITIAL_START_POSITION
 			start_positions[child] = start_position_x

@@ -35,6 +35,8 @@ func _input(event):
 func open_menu(mouse):
 	$Sharpen.visible = !mouse.is_percussion
 	$Flatten.visible = !mouse.is_percussion
+	$Push.visible = !mouse.is_always_in_time
+	$Pull.visible = !mouse.is_always_in_time
 	currentMouse = mouse
 	self.visible = true
 

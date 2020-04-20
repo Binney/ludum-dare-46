@@ -36,6 +36,7 @@ is_always_happy = true
 position = Vector2( 270, 350 )
 loop_track = ExtResource( 10 )
 frames = ExtResource( 11 )
+is_always_in_time = true
 
 [node name="ProgressBar" parent="Level" instance=ExtResource( 13 )]
 max_value = 30.0

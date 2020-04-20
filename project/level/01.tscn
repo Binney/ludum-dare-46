@@ -13,6 +13,7 @@
 [node name="TutorialOne" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
+hint_text = "The little drummer mouse has lost the beat. Try clicking/tapping on them to help put them right."
 
 [node name="CountrysideBackground" parent="Level" instance=ExtResource( 2 )]
 

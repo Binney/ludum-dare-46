@@ -4,7 +4,10 @@ const WALKING_SPEED = 1
 
 const Mousician = preload('Mousician.gd')
 
+export var hint_text = ''
+
 var sad_time = 0
+var current_sad_time = 0
 var total_time = 0
 
 var intro_length = 0
@@ -34,6 +37,8 @@ func _ready():
 			child.position.x = start_position_x
 
 	$ProgressBar.max_value = 4 * loop_length
+	if ($HintLabel != null):
+		$HintLabel.text = hint_text
 
 func _process(delta):
 	total_time += delta
@@ -55,6 +60,14 @@ func _process(delta):
 				
 		if is_sad:
 			sad_time += delta
+			current_sad_time += delta
+			if (current_sad_time > 1.5):
+				if ($HintLabel != null):
+					$HintLabel.visible = true
+		else:
+			current_sad_time = 0
+			if ($HintLabel != null):
+				$HintLabel.visible = false
 				
 		$ProgressBar.set_is_sad(is_sad)
 		

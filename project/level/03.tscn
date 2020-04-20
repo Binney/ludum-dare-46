@@ -17,6 +17,7 @@
 [node name="TutorialThree" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 11 )]
+hint_text = "Someone's lost the tune. Try clicking/tapping on a mouse to help put them right."
 
 [node name="CountrysideBackground" parent="Level" instance=ExtResource( 12 )]
 

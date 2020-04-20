@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprite/FluteMouse.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Cheesometer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UnlockableLevelButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/MouseUITheme.tres" type="Theme" id=5]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.393035, 0.733002, 0.99005 )
@@ -114,6 +115,25 @@ playing = true
 centered = false
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="MenuMouse"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuMouse"]
+
+[node name="Label" type="Label" parent="."]
+margin_right = 317.0
+margin_bottom = 413.0
+theme = ExtResource( 5 )
+text = "NOTE
+This game requires audio!
+
+Before you begin,
+make sure you can hear
+the music being played
+by the mouse below."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="BonusLevel_button" to="." method="_on_BonusLevel_button_pressed"]
 [connection signal="pressed" from="Level1_button" to="." method="_on_Level1_button_pressed"]
 [connection signal="pressed" from="Level2_button" to="." method="_on_Level2_button_pressed"]

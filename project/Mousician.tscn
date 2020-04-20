@@ -1,59 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprite/eyeframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Mousician.gd" type="Script" id=2]
-[ext_resource path="res://ActionButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ActionMenu.gd" type="Script" id=4]
-[ext_resource path="res://sprite/sharpen3.png" type="Texture" id=5]
-[ext_resource path="res://sprite/sharpen2.png" type="Texture" id=6]
-[ext_resource path="res://sprite/sharpen1.png" type="Texture" id=7]
-[ext_resource path="res://sprite/flatten3.png" type="Texture" id=8]
-[ext_resource path="res://sprite/flatten1.png" type="Texture" id=9]
-[ext_resource path="res://sprite/flatten2.png" type="Texture" id=10]
-[ext_resource path="res://sprite/push1.png" type="Texture" id=11]
-[ext_resource path="res://sprite/pull1.png" type="Texture" id=12]
-[ext_resource path="res://sprite/pull3.png" type="Texture" id=13]
-[ext_resource path="res://sprite/push3.png" type="Texture" id=14]
-[ext_resource path="res://sprite/push2.png" type="Texture" id=15]
-[ext_resource path="res://sprite/pull2.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.9053, 109.394 )
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 954.333, 105.412 )
 
 [node name="Mousician" type="Area2D"]
 script = ExtResource( 2 )
@@ -66,58 +17,7 @@ frame = 2
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = "Healthy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="ActionMenu" type="Area2D" parent="."]
-visible = false
-z_index = 500
-script = ExtResource( 4 )
-
-[node name="Sharpen" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( 0, -50 )
-
-[node name="AnimatedSprite" parent="ActionMenu/Sharpen" index="2"]
-frames = SubResource( 2 )
-frame = 1
-
-[node name="Flatten" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( 0, 50 )
-
-[node name="AnimatedSprite" parent="ActionMenu/Flatten" index="2"]
-frames = SubResource( 3 )
-frame = 1
-
-[node name="Push" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( 50, 0 )
-
-[node name="AnimatedSprite" parent="ActionMenu/Push" index="2"]
-frames = SubResource( 4 )
-frame = 1
-
-[node name="Pull" parent="ActionMenu" instance=ExtResource( 3 )]
-position = Vector2( -50, 0 )
-
-[node name="AnimatedSprite" parent="ActionMenu/Pull" index="2"]
-frames = SubResource( 5 )
-frame = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionMenu"]
-scale = Vector2( -10.9485, -41.0251 )
-shape = SubResource( 6 )
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="cancel" from="ActionMenu" to="." method="_on_ActionMenu_cancel"]
-[connection signal="performAction" from="ActionMenu/Sharpen" to="." method="_on_Sharpen_performAction"]
-[connection signal="performAction" from="ActionMenu/Flatten" to="." method="_on_Flatten_performAction"]
-[connection signal="performAction" from="ActionMenu/Push" to="." method="_on_Push_performAction"]
-[connection signal="performAction" from="ActionMenu/Pull" to="." method="_on_Pull_performAction"]
-
-[editable path="ActionMenu/Sharpen"]
-
-[editable path="ActionMenu/Flatten"]
-
-[editable path="ActionMenu/Push"]
-
-[editable path="ActionMenu/Pull"]

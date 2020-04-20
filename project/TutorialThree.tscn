@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://music/song_4/song 4 trumpet.ogg" type="AudioStream" id=1]
 [ext_resource path="res://music/song_4/song 4 triangle.ogg" type="AudioStream" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Level.tscn" type="PackedScene" id=11]
 [ext_resource path="res://CountrysideBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://CustomProgressBar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ActionMenu.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -36,7 +37,6 @@ is_percussion = true
 [node name="AnimatedSprite" parent="Level/Snarer" index="0"]
 frames = ExtResource( 7 )
 animation = "happy"
-frame = 1
 
 [node name="Triangulator" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 670.666, 382.265 )
@@ -48,7 +48,6 @@ is_always_happy = true
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 animation = "happy"
-frame = 1
 
 [node name="CollisionShape2D" parent="Level/Triangulator" index="2"]
 position = Vector2( 1.36035, 5.44153 )
@@ -60,7 +59,6 @@ loop_track = ExtResource( 4 )
 [node name="AnimatedSprite" parent="Level/Tubist" index="0"]
 frames = ExtResource( 9 )
 animation = "happy"
-frame = 1
 
 [node name="Trumpeteer" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 229.9, 342.001 )
@@ -73,6 +71,8 @@ frame = 0
 
 [node name="ProgressBar" parent="Level" instance=ExtResource( 13 )]
 max_value = 35.0
+
+[node name="ActionMenu" parent="Level" instance=ExtResource( 14 )]
 
 [editable path="Level/Snarer"]
 

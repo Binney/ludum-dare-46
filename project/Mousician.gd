@@ -23,10 +23,6 @@ var pitchShiftEffect
 func _ready():
 	rng.randomize()
 	$AnimatedSprite.play("happy")
-	$ActionMenu/Sharpen.visible = !is_percussion && !is_always_happy
-	$ActionMenu/Flatten.visible = !is_percussion && !is_always_happy
-	$ActionMenu/Push.visible = !is_always_happy
-	$ActionMenu/Pull.visible = !is_always_happy
 	setUpBus()
 	if (intro_track == null):
 		play_loop()
@@ -48,14 +44,6 @@ func _process(delta):
 		
 	if (is_percussion && time_offset != 0):
 		$AudioStreamPlayer.pitch_scale += (time_offset * delta / 50)
-
-func is_open_menu_event(event):
-	return event is InputEventScreenTouch && event.is_pressed()
-
-func _input_event(viewport, event, shape_idx):
-	if (!$ActionMenu.visible && is_open_menu_event(event)):
-		var absolute_event_position = event.get_position()
-		show_menu(absolute_event_position - global_position)
 
 func is_sad():
 	return time_offset != 0 || pitch_offset != 0
@@ -108,42 +96,24 @@ func resync_track():
 func calculate_ratio_for_offset(semitoneShift):
 	return pow(2, (semitoneShift)/float(12))
 
-func show_menu(position):
-	$ActionMenu.set_position(position)
-	$ActionMenu.visible = true
-
-func hide_menu():
-	$ActionMenu.visible = false
-
-func _on_ActionMenu_cancel():
-	hide_menu()
-
-func _on_Sharpen_performAction():
-	if (pitch_offset < pitch_offset_max):
-		pitch_offset += 1
-	post_process_action()
-
-func _on_Flatten_performAction():
-	if (pitch_offset > -pitch_offset_max):
-		pitch_offset -= 1
-	post_process_action()
-
-func _on_Push_performAction():
-	if (time_offset < 0):
-		time_offset = 0
-	elif (time_offset == 0):
-		time_offset = 1
-	post_process_action()
-
-func _on_Pull_performAction():
-	if (time_offset > 0):
-		time_offset = 0
-	elif (time_offset == 0):
-		time_offset = -1
-	post_process_action()
-
-func post_process_action():
-	hide_menu()
+func handleAction(action):
+	match (action):
+		'sharpen':
+			if (pitch_offset < pitch_offset_max):
+				pitch_offset += 1
+		'flatten':
+			if (pitch_offset > -pitch_offset_max):
+				pitch_offset -= 1
+		'push':
+			if (time_offset < 0):
+				time_offset = 0
+			elif (time_offset == 0):
+				time_offset = 1
+		'pull':
+			if (time_offset > 0):
+				time_offset = 0
+			elif (time_offset == 0):
+				time_offset = -1
 	update_output()
 	cool_off_start_time = OS.get_ticks_msec()
 

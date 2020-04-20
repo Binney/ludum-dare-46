@@ -57,72 +57,74 @@ centered = false
 
 [node name="TreesFar" type="ParallaxLayer" parent="."]
 modulate = Color( 0.909804, 0.972549, 1, 0.603922 )
-scale = Vector2( 0.75, 0.75 )
 motion_scale = Vector2( 0.75, 0.75 )
-motion_mirroring = Vector2( 1028, 0 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="tree0" type="Sprite" parent="TreesFar"]
-position = Vector2( 517.73, -31.0404 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 524.154, 169.264 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="tree2" type="Sprite" parent="TreesFar"]
-position = Vector2( 437.143, 199.862 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 504.301, 308.482 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 12 )
 
 [node name="tree1" type="Sprite" parent="TreesFar"]
-position = Vector2( 636.198, 217.143 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 960.306, 315.251 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="tree3" type="Sprite" parent="TreesFar"]
-position = Vector2( 228.908, 232.973 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 325.265, 317.65 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 11 )
 
 [node name="TreesMiddle" type="ParallaxLayer" parent="."]
 modulate = Color( 0.835294, 1, 0.956863, 0.960784 )
-scale = Vector2( 0.8, 0.8 )
 motion_scale = Vector2( 0.8, 0.8 )
-motion_mirroring = Vector2( 1028, 0 )
+motion_mirroring = Vector2( 1024, 0 )
 
 [node name="tree2" type="Sprite" parent="TreesMiddle"]
-position = Vector2( 969.19, 231.825 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 818.524, 353.585 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 12 )
 
 [node name="tree3" type="Sprite" parent="TreesMiddle"]
-position = Vector2( 294.757, 271.477 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 233.731, 375.717 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 11 )
 
 [node name="tree4" type="Sprite" parent="TreesMiddle"]
-position = Vector2( 780.973, 258.655 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 461.975, 371.801 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 9 )
 
 [node name="TreesClosest" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.9, 0.9 )
 motion_mirroring = Vector2( 1028, 0 )
 
-[node name="tree0" type="Sprite" parent="TreesClosest"]
-position = Vector2( 654.082, -35.1103 )
-texture = ExtResource( 7 )
-centered = false
-
 [node name="tree1" type="Sprite" parent="TreesClosest"]
-position = Vector2( 220.268, 258.722 )
+position = Vector2( 143.183, 414.06 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
 [node name="tree4" type="Sprite" parent="TreesClosest"]
-position = Vector2( 440.084, 258.061 )
+position = Vector2( 513.081, 379.82 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 11 )
 
 [node name="tree3" type="Sprite" parent="TreesClosest"]
-position = Vector2( 610.413, 263.366 )
+position = Vector2( 726.625, 386.585 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 9 )
+
+[node name="tree0" type="Sprite" parent="TreesClosest"]
+position = Vector2( 749.855, 164.026 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+centered = false
 
 [node name="Wall" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 1024, 0 )

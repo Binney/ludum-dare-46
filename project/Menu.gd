@@ -22,23 +22,23 @@ func randomise_mouse():
 
 func _on_Level1_button_pressed():
 	player_state.set_level(1)
-	get_tree().change_scene("res://TutorialOne.tscn")
+	get_tree().change_scene("res://level/01.tscn")
 
 func _on_Level2_button_pressed():
 	player_state.set_level(2)
-	get_tree().change_scene("res://TutorialTwo.tscn")
+	get_tree().change_scene("res://level/02.tscn")
 
 func _on_Level3_button_pressed():
 	player_state.set_level(3)
-	get_tree().change_scene("res://TutorialThree.tscn")
+	get_tree().change_scene("res://level/03.tscn")
 
 func _on_Level4_button_pressed():
 	player_state.set_level(4)
-	get_tree().change_scene("res://LevelOne.tscn")
+	get_tree().change_scene("res://level/04.tscn")
 
 func _on_Level5_button_pressed():
 	player_state.set_level(5)
-	get_tree().change_scene("res://LevelTwo.tscn")
+	get_tree().change_scene("res://level/05.tscn")
 
 func _on_BonusLevel_button_pressed():
-	get_tree().change_scene("res://BonusLevel.tscn")
+	get_tree().change_scene("res://level/Bonus.tscn")

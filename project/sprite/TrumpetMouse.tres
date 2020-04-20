@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
+
+[ext_resource path="res://sprite/trumpet1.png" type="Texture" id=1]
+[ext_resource path="res://sprite/trumpet2.png" type="Texture" id=2]
+[ext_resource path="res://sprite/trumpet3.png" type="Texture" id=3]
+[ext_resource path="res://sprite/trumpet0.png" type="Texture" id=4]
+[ext_resource path="res://sprite/trumpet0-sad.png" type="Texture" id=5]
+[ext_resource path="res://sprite/trumpet1-sad.png" type="Texture" id=6]
+[ext_resource path="res://sprite/trumpet3-sad.png" type="Texture" id=7]
+[ext_resource path="res://sprite/trumpet2-sad.png" type="Texture" id=8]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "sad",
+"speed": 5.0
+} ]

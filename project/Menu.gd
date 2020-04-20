@@ -2,7 +2,7 @@ extends Node2D
 
 var player_state
 const MENU_MOUSE_SPEED = 50
-const ANIMATION_NAMES = ["KeyboardMouse", "FluteMouse", "SnareMouse", "GuitarMouse", "TubaMouse"]
+const ANIMATION_NAMES = ["KeyboardMouse", "FluteMouse", "SnareMouse", "GuitarMouse", "TubaMouse", "TrumpetMouse"]
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -17,7 +17,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	randomise_mouse()
 
 func randomise_mouse():
-	var random_animation = ANIMATION_NAMES[rng.randi_range(0, 4)]
+	var random_animation = ANIMATION_NAMES[rng.randi_range(0, ANIMATION_NAMES.size())]
 	$MenuMouse/AnimatedSprite.frames = load("res://sprite/" + random_animation + ".tres")
 
 func _on_Level1_button_pressed():

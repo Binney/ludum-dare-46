@@ -5,7 +5,7 @@
 [ext_resource path="res://sprite/TriangleMouse.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://music/song_4/song 4 tuba.ogg" type="AudioStream" id=4]
 [ext_resource path="res://music/song_4/song 4 snare.ogg" type="AudioStream" id=5]
-[ext_resource path="res://sprite/KeyboardMouse.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://sprite/TrumpetMouse.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://Mousician.tscn" type="PackedScene" id=10]

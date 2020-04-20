@@ -1,10 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprite/FluteMouse.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Cheesometer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UnlockableLevelButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/MouseUITheme.tres" type="Theme" id=5]
+[ext_resource path="res://sprite/SnareMouse.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://RandomMouse.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprite/KeyboardMouse.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://sprite/GuitarMouse.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://sprite/TubaMouse.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://music/song_1/loop_snare.ogg" type="AudioStream" id=11]
+[ext_resource path="res://music/song_1/loop_tuba.ogg" type="AudioStream" id=12]
+[ext_resource path="res://music/song_1/loop_floot.ogg" type="AudioStream" id=13]
+[ext_resource path="res://music/song_3/song 3 -guitar.ogg" type="AudioStream" id=14]
+[ext_resource path="res://music/song_3/song 3 -floot.ogg" type="AudioStream" id=15]
+[ext_resource path="res://music/song_3/song 3 -trump3.ogg" type="AudioStream" id=16]
+[ext_resource path="res://sprite/TrumpetMouse.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://MenuMouse.gd" type="Script" id=18]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.393035, 0.733002, 0.99005 )
@@ -97,6 +110,7 @@ unlocked_at_cheeses = 6
 
 [node name="MenuMouse" type="Area2D" parent="."]
 position = Vector2( -128, 8 )
+script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -110,13 +124,37 @@ position = Vector2( 16, 419 )
 scale = Vector2( 0.48, 0.48 )
 frames = ExtResource( 2 )
 animation = "happy"
-frame = 1
+frame = 3
 playing = true
 centered = false
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="MenuMouse"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuMouse"]
+
+[node name="KeyboardMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 15 )
+sprite = ExtResource( 8 )
+
+[node name="FluteMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 13 )
+sprite = ExtResource( 2 )
+
+[node name="SnareMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 11 )
+sprite = ExtResource( 6 )
+
+[node name="GuitarMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 14 )
+sprite = ExtResource( 9 )
+
+[node name="TubaMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 12 )
+sprite = ExtResource( 10 )
+
+[node name="TrumpetMouse" parent="MenuMouse" instance=ExtResource( 7 )]
+stream = ExtResource( 16 )
+sprite = ExtResource( 17 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 317.0
